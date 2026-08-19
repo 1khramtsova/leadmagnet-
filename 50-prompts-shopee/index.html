@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>50 prompts de IA para quem vende na Shopee | JoomPulse</title>
+<meta name="description" content="Material gratuito: 50 prompts de IA prontos para achar produto, ler o concorrente e acertar o preço na Shopee. Preencha e receba na hora.">
+<meta property="og:title" content="50 prompts de IA para quem vende na Shopee">
+<meta property="og:description" content="Achar produto, ler concorrente, acertar preço. 50 prompts prontos, com dados reais da Shopee. De graça.">
+<meta property="og:type" content="website">
+<link rel="icon" href="/50-prompts-shopee/assets/logo-white.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   Tokens — mesmo kit dos lead magnets (shared/brand.css), tema Shopee.
+   =================================================================== */
+:root{
+  --jp-shopee:#EE4D2D; --jp-shopee-lt:#FF6A4A;
+  --bg:#150402; --bg-soft:#1E0704;
+  --surface:rgba(255,255,255,.055); --surface-2:rgba(0,0,0,.28);
+  --line:rgba(255,255,255,.12); --line-2:rgba(255,255,255,.08);
+  --text:#FFFFFF; --text-2:rgba(255,255,255,.86); --muted:rgba(255,255,255,.62);
+  --accent:var(--jp-shopee); --accent-hover:var(--jp-shopee-lt); --accent-ink:#FFFFFF;
+  --accent-soft:rgba(238,77,45,.16);
+  --glow:0 14px 34px -12px rgba(238,77,45,.75);
+  --font-display:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-text:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --r-sm:10px; --r-md:14px; --r-lg:20px; --r-xl:28px; --max:1160px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-text);line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* ---------- barra de urgência ---------- */
+.urgency{position:sticky;top:0;z-index:40;background:rgba(21,4,2,.9);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line-2)}
+.urgency .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding-top:11px;padding-bottom:11px}
+.urgency-txt{display:flex;align-items:center;gap:9px;font-size:.86rem;font-weight:600;color:var(--text-2)}
+.urgency-txt b{font-family:var(--font-display);font-weight:700;color:var(--accent);
+  font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.urgency img{height:22px;width:auto;display:block;opacity:.92}
+
+/* ---------- herói / card de captura ---------- */
+.hero{position:relative;overflow:hidden;padding:52px 0 64px}
+.hero::before{content:'';position:absolute;inset:-140px 0 0;pointer-events:none;
+  background:radial-gradient(920px 720px at 78% 26%,#C84125 0%,rgba(200,65,37,0) 64%),
+             radial-gradient(760px 520px at 2% 0%,rgba(120,38,20,.7) 0%,rgba(120,38,20,0) 62%)}
+.rings{position:absolute;top:-260px;right:-330px;width:1180px;max-width:130vw;opacity:.5;
+  pointer-events:none;user-select:none}
+.hero .wrap{position:relative;z-index:2}
+.capture{display:grid;grid-template-columns:1.08fr .92fr;gap:30px 44px;align-items:start;
+  grid-template-areas:"copy form" "illo form";
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:44px;backdrop-filter:blur(6px)}
+.capture-copy{grid-area:copy}
+.illo{grid-area:illo}
+.form-card{grid-area:form}
+.pill{display:inline-flex;align-items:center;gap:9px;padding:9px 18px;border-radius:999px;
+  border:1px solid var(--line);background:var(--accent-soft);font-size:.85rem;font-weight:700;
+  color:var(--text);margin-bottom:22px}
+.h1{font-family:var(--font-display);font-size:clamp(2.05rem,4.6vw,3.3rem);font-weight:800;
+  letter-spacing:-.02em;line-height:1.04;margin:0 0 18px;text-wrap:balance}
+.accent{color:var(--accent)}
+.lead{font-size:clamp(1rem,1.5vw,1.11rem);color:var(--text-2);margin:0 0 26px}
+.lead b{color:#fff;font-weight:700}
+
+/* ícones flutuantes ao lado da ilustração */
+.illo{position:relative}
+.illo-bag{display:block;width:100%;max-width:290px;margin:0 auto;
+  filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;
+  border:1px solid var(--line);background:var(--surface-2);font-size:.83rem;font-weight:600;
+  color:var(--text-2)}
+.chip i{font-style:normal}
+
+/* ---------- formulário ---------- */
+.form-card{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:28px;position:sticky;top:78px}
+.form-card h2{font-family:var(--font-display);font-size:1.24rem;font-weight:700;margin:0 0 6px;
+  letter-spacing:-.01em}
+.form-card .sub{font-size:.9rem;color:var(--muted);margin:0 0 20px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:6px}
+.field input,.field select{width:100%;font-family:inherit;font-size:.97rem;color:var(--text);
+  background:rgba(255,255,255,.06);border:1.5px solid var(--line);border-radius:var(--r-md);
+  padding:14px 15px;transition:.15s;appearance:none}
+.field input::placeholder{color:rgba(255,255,255,.38)}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent);
+  background:rgba(255,255,255,.09)}
+.field select{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23ffffff' stroke-opacity='.6' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 15px center;padding-right:40px;cursor:pointer}
+.field select option{background:#1E0704;color:#fff}
+.phone{display:flex;align-items:stretch;gap:8px}
+.phone .ddi{display:flex;align-items:center;padding:0 14px;border-radius:var(--r-md);
+  border:1.5px solid var(--line);background:rgba(255,255,255,.06);font-size:.97rem;
+  font-weight:600;color:var(--text-2);white-space:nowrap}
+.field.is-error input,.field.is-error select{border-color:#FF6A6A}
+.err{display:none;font-size:.78rem;color:#FF9C9C;margin-top:5px}
+.field.is-error .err{display:block}
+.consent{display:flex;gap:10px;align-items:flex-start;margin:16px 0 18px;font-size:.8rem;
+  color:var(--muted);line-height:1.45}
+.consent input{width:18px;height:18px;flex-shrink:0;margin:1px 0 0;accent-color:var(--accent);cursor:pointer}
+.consent a{color:var(--text-2)}
+.consent.is-error{color:#FF9C9C}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  border:none;cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:1.02rem;
+  letter-spacing:.01em;padding:18px 24px;border-radius:var(--r-md);transition:.15s;
+  background:var(--accent);color:var(--accent-ink);box-shadow:var(--glow);text-decoration:none}
+.btn:hover{background:var(--accent-hover)}
+.btn[disabled]{opacity:.65;cursor:progress}
+.form-note{font-size:.76rem;color:var(--muted);text-align:center;margin:12px 0 0}
+.form-fail{display:none;margin-top:12px;padding:12px 14px;border-radius:var(--r-md);
+  background:rgba(255,106,106,.12);border:1px solid rgba(255,106,106,.35);
+  font-size:.84rem;color:#FFC2C2}
+
+/* ---------- o que tem dentro ---------- */
+.inside{position:relative;z-index:2;padding:8px 0 76px;background:var(--bg)}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 34px}
+.h2{font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,2.25rem);font-weight:700;
+  letter-spacing:-.015em;line-height:1.12;margin:0 0 10px;text-wrap:balance}
+.sec-head p{color:var(--muted);margin:0;font-size:1.02rem}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px}
+.item .pain{font-family:var(--font-display);font-size:1.02rem;font-weight:600;line-height:1.35;
+  margin:0 0 10px;display:flex;gap:10px;align-items:flex-start}
+.item .pain i{font-style:normal;font-size:1.15rem;line-height:1.2}
+.item .fix{margin:0;font-size:.92rem;color:var(--muted);line-height:1.6}
+.item .fix b{color:var(--text-2);font-weight:600}
+
+/* ---------- CTA final ---------- */
+.final{position:relative;overflow:hidden;padding:64px 0 76px;background:var(--bg-soft);
+  border-top:1px solid var(--line-2);text-align:center}
+.final::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(760px 420px at 50% 120%,rgba(238,77,45,.4) 0%,rgba(238,77,45,0) 66%)}
+.final .wrap{position:relative;z-index:2}
+.final p{color:var(--text-2);max-width:50ch;margin:0 auto 26px}
+.btn--inline{width:auto;padding:18px 34px}
+
+/* ---------- rodapé ---------- */
+.footer{border-top:1px solid var(--line-2);padding:36px 0;background:var(--bg);text-align:center}
+.footer img{height:24px;width:auto;display:inline-block;margin-bottom:12px;opacity:.9}
+.footer p{color:var(--muted);font-size:.84rem;margin:0}
+.footer a{color:var(--muted)}
+
+/* ---------- responsivo ---------- */
+@media (max-width:960px){
+  .capture{grid-template-columns:1fr;gap:26px;padding:28px 22px;border-radius:var(--r-lg);
+    grid-template-areas:"copy" "form" "illo"}
+  .form-card{position:static}
+  .illo-bag{max-width:170px}
+  .grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .hero{padding:26px 0 40px}
+  .rings{top:-150px;right:-260px;width:760px;opacity:.42}
+  .urgency-txt{font-size:.78rem;gap:7px}
+  .urgency img{height:19px}
+  .capture{padding:24px 18px}
+  .form-card{padding:22px 18px}
+  .chips{gap:7px}
+  .chip{font-size:.78rem;padding:8px 12px}
+  .item{padding:20px}
+  .btn{font-size:.97rem;padding:17px 20px}
+  .btn--inline{width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ====================== barra de urgência ====================== -->
+<div class="urgency">
+  <div class="wrap">
+    <span class="urgency-txt">⚠️ Acesso liberado por mais <b id="countdown">14:59</b></span>
+    <img src="/50-prompts-shopee/assets/lockup-white.png" alt="JoomPulse × Shopee">
+  </div>
+</div>
+
+<!-- ====================== herói + captura ====================== -->
+<header class="hero">
+  <img class="rings" src="/50-prompts-shopee/assets/rings.svg" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="capture">
+
+      <div class="capture-copy">
+        <div class="pill">🎁 Material gratuito · Lançamento Shopee</div>
+        <h1 class="h1"><span class="accent">50 prompts de IA</span> para quem vende na Shopee</h1>
+        <p class="lead">Achar produto que vende de verdade, ler o concorrente, acertar preço e margem,
+          escrever anúncio que aparece na busca. Cada prompt já vem pronto: você preenche o que está
+          entre colchetes, cola no ChatGPT, no Claude ou no JoomAI e recebe a resposta
+          <b>com dados reais da Shopee</b> — não com achismo.</p>
+      </div>
+
+      <div class="illo">
+        <img class="illo-bag" src="/50-prompts-shopee/assets/shopee-bag.png" alt="" aria-hidden="true">
+        <div class="chips">
+          <span class="chip"><i>🔍</i> Achar produto</span>
+          <span class="chip"><i>🥊</i> Ler o concorrente</span>
+          <span class="chip"><i>💰</i> Preço e margem</span>
+          <span class="chip"><i>🔎</i> Anúncio na busca</span>
+          <span class="chip"><i>🔔</i> Alertas de mercado</span>
+          <span class="chip"><i>📊</i> Relatório pro cliente</span>
+        </div>
+      </div>
+
+      <!-- ====================== formulário ====================== -->
+      <div class="form-card" id="form-card">
+        <h2>Pegue os 50 prompts</h2>
+        <p class="sub">Preencha e o acesso abre na hora.</p>
+
+        <form id="lead-form" novalidate>
+          <!-- ---- campos ocultos: NÃO renomear "leadmagnet" ---- -->
+          <input type="hidden" name="leadmagnet" value="leadmagnet-50-prompts-shopee">
+          <input type="hidden" name="utm_source"   value="">
+          <input type="hidden" name="utm_medium"   value="">
+          <input type="hidden" name="utm_campaign" value="">
+          <input type="hidden" name="utm_content"  value="">
+          <input type="hidden" name="utm_term"     value="">
+          <input type="hidden" name="partner"      value="">
+          <input type="hidden" name="page_url"     value="">
+          <input type="hidden" name="referrer"     value="">
+
+          <div class="field" data-field>
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como podemos te chamar" required>
+            <span class="err">Escreva seu nome.</span>
+          </div>
+
+          <div class="field" data-field>
+            <label for="telefone">Telefone (WhatsApp)</label>
+            <div class="phone">
+              <span class="ddi">+55</span>
+              <input id="telefone" name="telefone" type="tel" inputmode="numeric"
+                     autocomplete="tel-national" placeholder="(11) 90000-0000" required>
+            </div>
+            <span class="err">Telefone com DDD, por favor.</span>
+          </div>
+
+          <div class="field" data-field>
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required>
+            <span class="err">Confira o e-mail.</span>
+          </div>
+
+          <div class="field" data-field>
+            <label for="onde_vende">Onde você vende hoje?</label>
+            <select id="onde_vende" name="onde_vende" required>
+              <option value="" selected disabled>Selecione</option>
+              <option>Shopee</option>
+              <option>Mercado Livre</option>
+              <option>Shopee e Mercado Livre</option>
+              <option>Amazon</option>
+              <option>Magalu / Americanas / outro marketplace</option>
+              <option>Loja própria / site</option>
+              <option>Instagram / WhatsApp</option>
+              <option>Ainda não vendo — quero começar</option>
+            </select>
+            <span class="err">Escolha uma opção.</span>
+          </div>
+
+          <div class="field" data-field>
+            <label for="faturamento">Qual é o faturamento mensal do seu negócio?</label>
+            <select id="faturamento" name="faturamento" required>
+              <option value="" selected disabled>Selecione</option>
+              <option>Ainda não faturo</option>
+              <option>Até R$ 10 mil</option>
+              <option>R$ 10 mil a R$ 50 mil</option>
+              <option>R$ 50 mil a R$ 100 mil</option>
+              <option>R$ 100 mil a R$ 500 mil</option>
+              <option>Acima de R$ 500 mil</option>
+            </select>
+            <span class="err">Escolha uma opção.</span>
+          </div>
+
+          <label class="consent" id="consent-row">
+            <input type="checkbox" name="consentimento" value="sim" required>
+            <span>Nós processamos seus dados de acordo com nossa
+              <a id="privacy-link" href="#" target="_blank" rel="noopener">política de privacidade</a>.</span>
+          </label>
+
+          <button class="btn" type="submit" id="submit-btn">PEGAR OS 50 PROMPTS DE GRAÇA</button>
+          <p class="form-note">Sem cartão, sem instalar nada.</p>
+          <div class="form-fail" id="form-fail">Não deu pra enviar agora. Tenta de novo em alguns segundos.</div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ====================== o que tem dentro ====================== -->
+<section class="inside">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2">O que tem dentro do <span class="accent">cofre</span></h2>
+      <p>Toda pergunta que te trava na Shopee — tem um prompt que responde.</p>
+    </div>
+
+    <div class="grid">
+      <article class="item">
+        <p class="pain"><i>🔍</i> Não sabe o que realmente vende na sua categoria?</p>
+        <p class="fix"><b>Tem prompt</b> que puxa os campeões de volume reais da Shopee — pelo número de
+          avaliações, não pelo que a vitrine mostra.</p>
+      </article>
+      <article class="item">
+        <p class="pain"><i>📈</i> Descobre a tendência quando todo mundo já está vendendo?</p>
+        <p class="fix"><b>Tem prompt</b> que mostra quem ganhou avaliação mais rápido nos últimos 30 dias —
+          velocidade, não total acumulado.</p>
+      </article>
+      <article class="item">
+        <p class="pain"><i>💰</i> Vai lançar um produto e não sabe por quanto?</p>
+        <p class="fix"><b>Tem prompt</b> que lê a faixa de preço que a categoria aguenta e diz onde te
+          posicionar pra vender sem entregar a margem.</p>
+      </article>
+      <article class="item">
+        <p class="pain"><i>🥊</i> Um concorrente te passou e você não sabe por quê?</p>
+        <p class="fix"><b>Tem prompt</b> que compara anúncio contra anúncio e aponta o que ele tem —
+          preço, foto, título, frete — que você não tem.</p>
+      </article>
+      <article class="item">
+        <p class="pain"><i>🔎</i> Seu anúncio não aparece na busca?</p>
+        <p class="fix"><b>Tem prompt</b> que extrai as palavras que os líderes do nicho usam no título e
+          devolve o seu já reescrito.</p>
+      </article>
+      <article class="item">
+        <p class="pain"><i>📦</i> Está no fornecedor com o produto na mão?</p>
+        <p class="fix"><b>Tem prompt</b> que responde ali mesmo, do celular, se aquilo vende na Shopee,
+          por quanto e contra quem.</p>
+      </article>
+      <article class="item">
+        <p class="pain"><i>🔔</i> Cansado de descobrir mudança de preço tarde demais?</p>
+        <p class="fix"><b>Tem prompt</b> que monta seu monitoramento: preço do concorrente, vendedor novo
+          no nicho e data sazonal chegando.</p>
+      </article>
+      <article class="item">
+        <p class="pain"><i>📊</i> Atende cliente e perde a tarde montando relatório?</p>
+        <p class="fix"><b>Tem prompt</b> que transforma a análise da categoria em relatório nível
+          apresentação — em minutos, sem designer.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CTA final ====================== -->
+<section class="final">
+  <div class="wrap">
+    <h2 class="h2">Os 50 prompts são seus. De graça.</h2>
+    <p>Preencha o formulário e o acesso abre na hora — sem espera, sem cartão.</p>
+    <a class="btn btn--inline" href="#form-card" id="cta-final">PEGAR OS 50 PROMPTS DE GRAÇA</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <img src="/50-prompts-shopee/assets/logo-white.png" alt="JoomPulse">
+    <p>Vender na Shopee fica fácil quando você sabe onde olhar. ·
+      <a id="privacy-link-2" href="#" target="_blank" rel="noopener">Política de privacidade</a></p>
+  </div>
+</footer>
+
+<script>
+/* ===================================================================
+   CONFIGURAÇÃO — o que dá pra mudar sem mexer no resto da página.
+   =================================================================== */
+var CONFIG = {
+  // Para onde o lead vai depois de enviar o formulário.
+  // Pode ser sobrescrito sem tocar no código: variável de ambiente
+  // LEAD_REDIRECT_URL nas Settings do projeto na Vercel.
+  redirectUrl: '/prompts-shopee',
+
+  // Link da política de privacidade (checkbox e rodapé).
+  privacyUrl: 'https://br.joompulse.com/privacy-policy',
+
+  // Rota que recebe o formulário (função serverless deste projeto).
+  endpoint: '/api/lead'
+};
+
+(function () {
+  'use strict';
+
+  document.getElementById('privacy-link').href = CONFIG.privacyUrl;
+  document.getElementById('privacy-link-2').href = CONFIG.privacyUrl;
+
+  /* ---------- 1. contador simbólico, reinicia a cada sessão ---------- */
+  var TOTAL = 15 * 60 * 1000;
+  var el = document.getElementById('countdown');
+  var started = Number(sessionStorage.getItem('lm_started') || 0);
+  if (!started) { started = Date.now(); sessionStorage.setItem('lm_started', String(started)); }
+  function tick() {
+    var left = Math.max(0, TOTAL - (Date.now() - started));
+    var m = Math.floor(left / 60000), s = Math.floor(left % 60000 / 1000);
+    el.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ---------- 2. UTMs → campos ocultos (guardadas na sessão) ---------- */
+  var form = document.getElementById('lead-form');
+  var params = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','partner'].forEach(function (key) {
+    var value = params.get(key);
+    if (value) sessionStorage.setItem('lm_' + key, value);
+    var saved = value || sessionStorage.getItem('lm_' + key) || '';
+    if (form.elements[key]) form.elements[key].value = saved;
+  });
+  form.elements['page_url'].value = location.href;
+  form.elements['referrer'].value = document.referrer || '';
+
+  /* ---------- 3. máscara de telefone ---------- */
+  var phone = document.getElementById('telefone');
+  phone.addEventListener('input', function () {
+    var d = phone.value.replace(/\D/g, '').slice(0, 11);
+    var out = '';
+    if (d.length) out = '(' + d.slice(0, 2);
+    if (d.length >= 3) out += ') ' + d.slice(2, d.length > 10 ? 7 : 6);
+    if (d.length > (d.length > 10 ? 7 : 6)) out += '-' + d.slice(d.length > 10 ? 7 : 6);
+    phone.value = out;
+  });
+
+  /* ---------- 4. validação ---------- */
+  function markError(node, isError) {
+    node.classList.toggle('is-error', isError);
+  }
+  function validate() {
+    var ok = true;
+    Array.prototype.forEach.call(form.querySelectorAll('[data-field]'), function (fieldEl) {
+      var input = fieldEl.querySelector('input, select');
+      var value = (input.value || '').trim();
+      var bad = !value;
+      if (!bad && input.id === 'email') bad = !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+      if (!bad && input.id === 'telefone') bad = value.replace(/\D/g, '').length < 10;
+      markError(fieldEl, bad);
+      if (bad) ok = false;
+    });
+    var consentRow = document.getElementById('consent-row');
+    var consentBad = !form.elements['consentimento'].checked;
+    consentRow.classList.toggle('is-error', consentBad);
+    if (consentBad) ok = false;
+    return ok;
+  }
+  form.addEventListener('input', function (event) {
+    var fieldEl = event.target.closest('[data-field]');
+    if (fieldEl) markError(fieldEl, false);
+    if (event.target.name === 'consentimento') {
+      document.getElementById('consent-row').classList.remove('is-error');
+    }
+  });
+
+  /* ---------- 5. envio ---------- */
+  var btn = document.getElementById('submit-btn');
+  var fail = document.getElementById('form-fail');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    fail.style.display = 'none';
+    if (!validate()) {
+      var first = form.querySelector('.is-error input, .is-error select');
+      if (first) { first.focus(); first.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+      return;
+    }
+
+    var payload = {};
+    new FormData(form).forEach(function (value, key) { payload[key] = value; });
+    payload.telefone = '+55' + payload.telefone.replace(/\D/g, '');
+
+    btn.disabled = true;
+    var label = btn.textContent;
+    btn.textContent = 'ENVIANDO...';
+
+    fetch(CONFIG.endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json().catch(function () { return {}; });
+      })
+      .then(function (data) {
+        location.href = (data && data.redirect) || CONFIG.redirectUrl;
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = label;
+        fail.style.display = 'block';
+      });
+  });
+
+  /* ---------- 6. CTA final rola até o formulário ---------- */
+  document.getElementById('cta-final').addEventListener('click', function () {
+    setTimeout(function () { document.getElementById('nome').focus({ preventScroll: true }); }, 500);
+  });
+})();
+</script>
+
+</body>
+</html>
