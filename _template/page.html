@@ -1,0 +1,106 @@
+<!-- ---------------------------------------------------------------
+     Шаблон лид-магнита. Как пользоваться:
+       1. cp -r _template <slug>  &&  mv <slug>/page.html <slug>/index.html
+       2. заменить всё, что помечено ЗАМЕНИТЬ
+       3. картинки положить в <slug>/assets/
+       4. закоммитить и запушить — Vercel отдаст страницу на /<slug>
+     Тема берётся из /shared/brand.css: data-theme="shopee" — тёмная
+     красная (лончевая), без атрибута — светлая синяя (продуктовая).
+     --------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ЗАМЕНИТЬ — título | JoomPulse</title>
+<meta name="description" content="ЗАМЕНИТЬ — uma frase sobre o material.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="ЗАМЕНИТЬ — título">
+<meta property="og:description" content="ЗАМЕНИТЬ — uma frase sobre o material.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/brand.css">
+<style>
+  /* Только то, что специфично для этой страницы. Общее — в brand.css */
+  .hero { position: relative; overflow: hidden; padding: 64px 0 56px; }
+  .hero::before {
+    content: ''; position: absolute; inset: -120px 0 0;
+    background: radial-gradient(920px 720px at 78% 30%, #C84125 0%, rgba(200,65,37,0) 64%);
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; z-index: 2; }
+
+</style>
+</head>
+<body data-theme="shopee">
+
+<nav class="nav">
+  <div class="wrap">
+    <img src="/shared/logo-white.png" alt="JoomPulse"><!-- ЗАМЕНИТЬ на локап, если ко-бренд -->
+    <span class="nav-tag">Material gratuito</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="pill">🚀 ЗАМЕНИТЬ — badge</div>
+    <h1 class="h1">ЗАМЕНИТЬ — заголовок с <b class="accent">акцентом</b></h1>
+    <p class="lead">ЗАМЕНИТЬ — 2–3 строки о том, что человек получил и что с этим делать.</p>
+    <a class="btn btn--primary" href="#lista">ЗАМЕНИТЬ — CTA ↓</a>
+  </div>
+</header>
+
+<!-- Панель поиска. Не нужна — удалить весь блок, скрипт это переживёт. -->
+<div class="toolbar">
+  <div class="wrap">
+    <input id="search" type="search" data-noun="prompts" placeholder="Buscar…" autocomplete="off">
+    <span id="count">2 prompts</span>
+  </div>
+</div>
+
+<section class="list" id="lista">
+  <div class="wrap">
+    <div class="grid-2">
+
+      <!-- Карточка: data-search — строка в нижнем регистре, по которой ищем -->
+      <article class="card p-card" data-n="01" data-search="ЗАМЕНИТЬ текст для поиска">
+        <h3 class="p-num">01</h3>
+        <p class="p-pain">“ЗАМЕНИТЬ — боль словами селлера”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>ЗАМЕНИТЬ — текст промпта с [параметрами] в квадратных скобках.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+
+      <!-- Карточка из нескольких шагов -->
+      <article class="card p-card" data-n="02" data-search="ЗАМЕНИТЬ текст для поиска">
+        <h3 class="p-num">02</h3>
+        <p class="p-pain">“ЗАМЕНИТЬ — боль словами селлера”</p>
+        <div class="p-part">
+          <div class="p-label">Passo 1</div>
+          <div class="prompt" data-prompt>ЗАМЕНИТЬ — первый шаг.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+        <div class="p-part">
+          <div class="p-label">Passo 2</div>
+          <div class="prompt" data-prompt>ЗАМЕНИТЬ — второй шаг.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+
+    </div>
+    <p class="empty" id="empty">Nenhum resultado. Tente outra palavra.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <img src="/shared/logo-white.png" alt="JoomPulse">
+    <p>ЗАМЕНИТЬ — строка-подпись.</p>
+  </div>
+</footer>
+
+<script src="/shared/leadmagnet.js" defer></script>
+</body>
+</html>
