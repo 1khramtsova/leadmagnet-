@@ -40,10 +40,10 @@
 
   /* ---------- como usar ---------- */
   .howto { padding: 18px 0 44px; position: relative; z-index: 2; }
-  .step { padding: 20px 22px; }
-  .step i { font-style: normal; font-weight: 700; font-size: .74rem; letter-spacing: .12em;
-    color: var(--accent); display: block; margin-bottom: 8px; }
-  .step b { display: block; font-family: var(--font-display); font-size: 1rem; margin-bottom: 5px; }
+  .step { padding: 20px 22px; flex-direction: row; gap: 14px; align-items: flex-start; }
+  .step i { font-style: normal; font-family: var(--font-display); font-weight: 700;
+    font-size: 1.35rem; line-height: 1.15; color: var(--accent); flex-shrink: 0; }
+  .step b { display: block; font-family: var(--font-display); font-size: 1rem; margin-bottom: 3px; }
   .step span { font-size: .9rem; color: var(--muted); }
   .step code { font-family: inherit; color: var(--accent); font-weight: 600; }
 
@@ -92,9 +92,9 @@
 <section class="howto">
   <div class="wrap">
     <div class="grid-3">
-      <div class="card step"><i>PASSO 1</i><b>Escolha o prompt</b><span>Use a busca para achar pela sua dúvida.</span></div>
-      <div class="card step"><i>PASSO 2</i><b>Preencha os colchetes</b><span>Troque <code>[categoria]</code>, <code>[produto]</code> e afins pelos seus dados.</span></div>
-      <div class="card step"><i>PASSO 3</i><b>Cole e rode</b><span>No JoomAI ou no Claude conectado ao MCP da JoomPulse.</span></div>
+      <div class="card step"><i>1</i><div><b>Escolha o prompt</b><span>Use a busca para achar pela sua dúvida.</span></div></div>
+      <div class="card step"><i>2</i><div><b>Preencha os colchetes</b><span>Troque <code>[categoria]</code>, <code>[produto]</code> e afins pelos seus dados.</span></div></div>
+      <div class="card step"><i>3</i><div><b>Cole e rode</b><span>No JoomAI ou no Claude conectado ao MCP da JoomPulse.</span></div></div>
     </div>
     <div class="card params-box">
       <b>O que vai dentro dos colchetes</b>
