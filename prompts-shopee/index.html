@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>50 prompts de IA para vendedores Shopee | JoomPulse</title>
+<meta name="description" content="50 prompts prontos para rodar no JoomAI e no MCP da JoomPulse. Preencha os colchetes, copie e cole.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="50 prompts de IA para quem vende na Shopee">
+<meta property="og:description" content="Preencha os colchetes, copie e cole. Dados reais da Shopee, sem achismo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/brand.css">
+<style>
+  /* ---------- fundo, no registro do convite do lançamento ---------- */
+  body { background: var(--bg); }
+
+  /* brilho do topo, preso ao herói — o resto da página fica no vermelho escuro */
+  .hero::before {
+    content: ''; position: absolute; inset: -120px 0 0;
+    background:
+      radial-gradient(920px 720px at 78% 30%, #C84125 0%, rgba(200,65,37,0) 64%),
+      radial-gradient(760px 520px at 4% 0%, rgba(120,38,20,.7) 0%, rgba(120,38,20,0) 62%);
+    pointer-events: none;
+  }
+
+  .rings {
+    position: absolute; top: -240px; right: -320px; width: 1180px; max-width: 130vw;
+    opacity: .5; pointer-events: none; user-select: none;
+  }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; overflow: hidden; padding: 64px 0 56px; }
+  .hero .wrap { position: relative; z-index: 2; display: grid; grid-template-columns: 1.25fr .75fr;
+    gap: 40px; align-items: center; }
+  .hero-bag { width: 100%; max-width: 380px; margin-left: auto; display: block;
+    filter: drop-shadow(0 40px 60px rgba(0,0,0,.55)); }
+  .hero .lead b { color: #fff; font-weight: 700; }
+
+  /* ---------- como usar ---------- */
+  .howto { padding: 18px 0 44px; position: relative; z-index: 2; }
+  .step { padding: 20px 22px; }
+  .step i { font-style: normal; font-weight: 700; font-size: .74rem; letter-spacing: .12em;
+    color: var(--accent); display: block; margin-bottom: 8px; }
+  .step b { display: block; font-family: var(--font-display); font-size: 1rem; margin-bottom: 5px; }
+  .step span { font-size: .9rem; color: var(--muted); }
+  .step code { font-family: inherit; color: var(--accent); font-weight: 600; }
+
+  .params-box { margin-top: 16px; padding: 26px 28px; }
+  .params-box > b { font-family: var(--font-display); font-size: 1rem; }
+  .params { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 30px; margin-top: 16px; }
+  .param { display: flex; gap: 10px; align-items: baseline; font-size: .89rem; }
+  .param code { color: var(--accent); font-weight: 600; font-family: inherit; white-space: nowrap; }
+  .param span { color: var(--muted); }
+
+
+  @media (max-width: 900px) {
+    .hero { padding: 40px 0 44px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 8px; }
+    .hero-bag { max-width: 190px; margin: 0 auto; }
+    .hero::before { inset: -120px 0 40%; }
+    .params { grid-template-columns: 1fr; }
+    .h1 { max-width: none; }
+  }
+</style>
+</head>
+<body data-theme="shopee">
+
+<nav class="nav">
+  <div class="wrap">
+    <img src="/prompts-shopee/assets/lockup-white.png" alt="JoomPulse × Shopee">
+    <span class="nav-tag">Material gratuito</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <img class="rings" src="/prompts-shopee/assets/rings.svg" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div>
+      <div class="pill">🚀 Seus 50 prompts estão liberados</div>
+      <h1 class="h1">50 prompts de IA para quem vende na <b class="accent">Shopee</b></h1>
+      <p class="lead">Cada prompt responde uma pergunta que você já se fez — o que vender, por quanto,
+        contra quem. Preencha o que está entre colchetes, copie e cole no JoomAI ou no Claude com o
+        MCP da JoomPulse. <b>Dados reais da Shopee, sem achismo.</b></p>
+      <a class="btn btn--primary" href="#lista">Ver os 50 prompts ↓</a>
+    </div>
+    <img class="hero-bag" src="/prompts-shopee/assets/shopee-bag.png" alt="" aria-hidden="true">
+  </div>
+</header>
+
+<section class="howto">
+  <div class="wrap">
+    <div class="grid-3">
+      <div class="card step"><i>PASSO 1</i><b>Escolha o prompt</b><span>Use a busca para achar pela sua dúvida.</span></div>
+      <div class="card step"><i>PASSO 2</i><b>Preencha os colchetes</b><span>Troque <code>[categoria]</code>, <code>[produto]</code> e afins pelos seus dados.</span></div>
+      <div class="card step"><i>PASSO 3</i><b>Cole e rode</b><span>No JoomAI ou no Claude conectado ao MCP da JoomPulse.</span></div>
+    </div>
+    <div class="card params-box">
+      <b>O que vai dentro dos colchetes</b>
+      <div class="params">
+          <div class="param"><code>[categoria]</code><span>a categoria da Shopee — Casa e Decoração, Beleza, Pet Shop…</span></div>
+          <div class="param"><code>[subcategoria]</code><span>o recorte mais estreito dentro dela</span></div>
+          <div class="param"><code>[produto]</code><span>o que você vende, nas suas palavras</span></div>
+          <div class="param"><code>[link do anúncio]</code><span>a URL de um anúncio da Shopee</span></div>
+          <div class="param"><code>[links dos anúncios]</code><span>a lista de anúncios que você quer acompanhar</span></div>
+          <div class="param"><code>[link da loja]</code><span>a URL ou o nome de uma loja</span></div>
+          <div class="param"><code>[meu preço]</code><span>o seu preço de venda</span></div>
+          <div class="param"><code>[meu custo]</code><span>o seu custo posto, para calcular margem</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="toolbar">
+  <div class="wrap">
+    <input id="search" type="search" placeholder="Buscar — ex.: preço, concorrente, importado, relatório…" autocomplete="off">
+    <span id="count">50 prompts</span>
+  </div>
+</div>
+
+<section class="list" id="lista">
+  <div class="wrap">
+    <div class="grid-2" id="grid">
+      <article class="card p-card" data-n="01" data-search="quero saber o que realmente vende na minha categoria — não o que o site diz que vende. quais são os 15 produtos com mais avaliações na categoria [categoria] da shopee? quero os campeões reais de volume. mostre preço, número de avaliações, nota, tipo de loja e link. ordene por número de avaliações.">
+        <h3 class="p-num">01</h3>
+        <p class="p-pain">“Quero saber o que realmente vende na minha categoria — não o que o site diz que vende.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Quais são os 15 produtos com MAIS avaliações na categoria [categoria] da Shopee? Quero os campeões reais de volume. Mostre preço, número de avaliações, nota, tipo de loja e link. Ordene por número de avaliações.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="02" data-search="como acho produto que o pessoal quer mas ninguém entrega direito? na categoria [categoria] da shopee, encontre produtos com muito mais favoritos do que a média da categoria, mas com poucas avaliações em relação a esses favoritos. quero desejo do público que a oferta atual não converte — onde eu entro com preço, foto ou frete melhor. mostre preço, favoritos, avaliações, nota e a razão favoritos/avaliações.">
+        <h3 class="p-num">02</h3>
+        <p class="p-pain">“Como acho produto que o pessoal QUER mas ninguém entrega direito?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na categoria [categoria] da Shopee, encontre produtos com muito mais favoritos do que a média da categoria, mas com poucas avaliações em relação a esses favoritos. Quero desejo do público que a oferta atual não converte — onde eu entro com preço, foto ou frete melhor. Mostre preço, favoritos, avaliações, nota e a razão favoritos/avaliações.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="03" data-search="quando eu vejo a tendência, todo mundo já está vendendo. usando o mcp da joompulse na shopee, olhe o histórico de avaliações dos produtos da categoria [categoria] e me mostre os 10 que ganharam avaliações mais rápido nos últimos 30 dias. velocidade de avaliação, não total acumulado. mostre preço, avaliações ganhas no período, nota, loja e link.">
+        <h3 class="p-num">03</h3>
+        <p class="p-pain">“Quando eu vejo a tendência, todo mundo já está vendendo.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Usando o MCP da JoomPulse na Shopee, olhe o histórico de avaliações dos produtos da categoria [categoria] e me mostre os 10 que ganharam avaliações MAIS RÁPIDO nos últimos 30 dias. Velocidade de avaliação, não total acumulado. Mostre preço, avaliações ganhas no período, nota, loja e link.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="04" data-search="vale a pena entrar nessa categoria? quanto ela movimenta? me dá o panorama da categoria [categoria] na shopee: faturamento estimado do último mês fechado, número de pedidos, número de vendedores e ticket médio. depois quebre nas subcategorias e me diga quais são as maiores e quais estão crescendo.">
+        <h3 class="p-num">04</h3>
+        <p class="p-pain">“Vale a pena entrar nessa categoria? Quanto ela movimenta?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Me dá o panorama da categoria [categoria] na Shopee: faturamento estimado do último mês fechado, número de pedidos, número de vendedores e ticket médio. Depois quebre nas subcategorias e me diga quais são as maiores e quais estão crescendo.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="05" data-search="todo nicho bom é travado por loja oficial — ou não? na categoria [categoria] da shopee, os produtos com mais avaliações são de shopee mall (loja oficial), lojas indicadas ou lojas comuns? liste os 10 primeiros com o tipo de loja de cada um, preço, avaliações e nota. depois me diga em quais subcategorias a loja comum domina — são as mais fáceis de entrar.">
+        <h3 class="p-num">05</h3>
+        <p class="p-pain">“Todo nicho bom é travado por loja oficial — ou não?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na categoria [categoria] da Shopee, os produtos com mais avaliações são de Shopee Mall (loja oficial), lojas Indicadas ou lojas Comuns? Liste os 10 primeiros com o tipo de loja de cada um, preço, avaliações e nota. Depois me diga em quais subcategorias a loja comum domina — são as mais fáceis de entrar.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="06" data-search="não quero brigar com três gigantes que já tomaram tudo. compare as subcategorias de [categoria] na shopee pelo nível de concentração: onde poucos vendedores dominam e onde o mercado está pulverizado. liste as 10 mais pulverizadas com faturamento estimado, número de vendedores e ticket médio.">
+        <h3 class="p-num">06</h3>
+        <p class="p-pain">“Não quero brigar com três gigantes que já tomaram tudo.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Compare as subcategorias de [categoria] na Shopee pelo nível de concentração: onde poucos vendedores dominam e onde o mercado está pulverizado. Liste as 10 mais pulverizadas com faturamento estimado, número de vendedores e ticket médio.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="07" data-search="o sistema me manda entrar em geladeira. eu vendo da minha sala. liste as subcategorias de [categoria] na shopee com boa oportunidade, mas filtre pelo que eu consigo operar de verdade: ticket médio compatível com [meu preço], produto leve e não frágil, sem exigência de marca ou certificação, e mercado pulverizado. explique em uma linha por que cada uma passou no filtro — e cite as que reprovaram e por quê.">
+        <h3 class="p-num">07</h3>
+        <p class="p-pain">“O sistema me manda entrar em geladeira. Eu vendo da minha sala.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Liste as subcategorias de [categoria] na Shopee com boa oportunidade, MAS filtre pelo que eu consigo operar de verdade: ticket médio compatível com [meu preço], produto leve e não frágil, sem exigência de marca ou certificação, e mercado pulverizado. Explique em uma linha por que cada uma passou no filtro — e cite as que reprovaram e por quê.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="08" data-search="poucos vendedores é oportunidade ou é armadilha? me mostre as subcategorias de [categoria] na shopee com alta oportunidade e poucos vendedores. para cada uma, diga se o número baixo de vendedores é espaço vago ou barreira de entrada (capital, logística pesada, marca travada) — e classifique em &quot;dá pra entrar&quot; ou &quot;não dá&quot;.">
+        <h3 class="p-num">08</h3>
+        <p class="p-pain">“Poucos vendedores é oportunidade ou é armadilha?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Me mostre as subcategorias de [categoria] na Shopee com alta oportunidade e poucos vendedores. Para CADA uma, diga se o número baixo de vendedores é espaço vago ou barreira de entrada (capital, logística pesada, marca travada) — e classifique em &quot;dá pra entrar&quot; ou &quot;não dá&quot;.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="09" data-search="todo mundo vende barato ou caro. e no meio? mapeie as faixas de preço dos produtos com mais avaliações da subcategoria [subcategoria] na shopee. mostre quantos produtos e quantas avaliações há em cada faixa, e aponte onde existe buraco de oferta. ignore itens com preço zerado ou absurdo — são falha de coleta.">
+        <h3 class="p-num">09</h3>
+        <p class="p-pain">“Todo mundo vende barato ou caro. E no meio?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Mapeie as faixas de preço dos produtos com mais avaliações da subcategoria [subcategoria] na Shopee. Mostre quantos produtos e quantas avaliações há em cada faixa, e aponte onde existe buraco de oferta. Ignore itens com preço zerado ou absurdo — são falha de coleta.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="10" data-search="quero ver o que entrou agora e já pegou — antes de virar óbvio. na categoria [categoria] da shopee, encontre anúncios criados nos últimos 90 dias que já acumularam mais avaliações do que a média dos anúncios novos da categoria. mostre data de criação, avaliações, nota, preço, tipo de loja e link. ignore anúncios sem atividade recente.">
+        <h3 class="p-num">10</h3>
+        <p class="p-pain">“Quero ver o que entrou agora e já pegou — antes de virar óbvio.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na categoria [categoria] da Shopee, encontre anúncios criados nos últimos 90 dias que já acumularam mais avaliações do que a média dos anúncios novos da categoria. Mostre data de criação, avaliações, nota, preço, tipo de loja e link. Ignore anúncios sem atividade recente.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="11" data-search="vou lançar esse produto. por quanto? vou vender [produto] na shopee. me mostre a escada de preços dos anúncios concorrentes com mais avaliações: mais barato, mais caro, e onde está o grosso do mercado. recomende uma faixa de entrada e explique o porquê.">
+        <h3 class="p-num">11</h3>
+        <p class="p-pain">“Vou lançar esse produto. Por quanto?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Vou vender [produto] na Shopee. Me mostre a escada de preços dos anúncios concorrentes com mais avaliações: mais barato, mais caro, e onde está o grosso do mercado. Recomende uma faixa de entrada e explique o porquê.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="12" data-search="esse concorrente vive em promoção ou o preço dele é esse mesmo? me mostre o histórico de preço deste anúncio da shopee: [link do anúncio]. quero saber se ele faz promoção recorrente, em que datas, e qual é o preço &quot;normal&quot; dele. descarte pontos impossíveis (preço zero ou centavos) como falha de coleta.">
+        <h3 class="p-num">12</h3>
+        <p class="p-pain">“Esse concorrente vive em promoção ou o preço dele é esse mesmo?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Me mostre o histórico de preço deste anúncio da Shopee: [link do anúncio]. Quero saber se ele faz promoção recorrente, em que datas, e qual é o preço &quot;normal&quot; dele. Descarte pontos impossíveis (preço zero ou centavos) como falha de coleta.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="13" data-search="minhas vendas caem e eu descubro depois que o vizinho baixou o preço. monitore estes anúncios da shopee: [links dos anúncios]. toda segunda-feira me diga quem subiu, quem baixou e quanto, comparado com a semana anterior. termine com uma recomendação: mexo no meu preço de [meu preço] ou seguro?">
+        <h3 class="p-num">13</h3>
+        <p class="p-pain">“Minhas vendas caem e eu descubro depois que o vizinho baixou o preço.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Monitore estes anúncios da Shopee: [links dos anúncios]. Toda segunda-feira me diga quem subiu, quem baixou e quanto, comparado com a semana anterior. Termine com uma recomendação: mexo no meu preço de [meu preço] ou seguro?</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="14" data-search="estou caro ou barato pro que essa categoria aguenta? o ticket médio da subcategoria [subcategoria] na shopee é quanto? meu preço é [meu preço]. estou acima ou abaixo do que o comprador dessa categoria está acostumado a pagar — e isso me ajuda ou me atrapalha?">
+        <h3 class="p-num">14</h3>
+        <p class="p-pain">“Estou caro ou barato pro que essa categoria aguenta?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>O ticket médio da subcategoria [subcategoria] na Shopee é quanto? Meu preço é [meu preço]. Estou acima ou abaixo do que o comprador dessa categoria está acostumado a pagar — e isso me ajuda ou me atrapalha?</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="15" data-search="nessa categoria dá pra ganhar sendo bom ou só sendo o mais barato? na subcategoria [subcategoria] da shopee, cruze preço, nota e número de avaliações dos 30 produtos mais avaliados. os campeões são os mais baratos ou os mais bem avaliados? me diga qual estratégia esse nicho premia e com que evidência.">
+        <h3 class="p-num">15</h3>
+        <p class="p-pain">“Nessa categoria dá pra ganhar sendo bom ou só sendo o mais barato?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na subcategoria [subcategoria] da Shopee, cruze preço, nota e número de avaliações dos 30 produtos mais avaliados. Os campeões são os mais baratos ou os mais bem avaliados? Me diga qual estratégia esse nicho premia e com que evidência.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="16" data-search="todo mundo diz que na shopee só vende barato. é verdade no meu nicho? na categoria [categoria] da shopee, existem produtos com preço bem acima do ticket médio da categoria que mesmo assim têm muitas avaliações e nota alta? liste os 10 e me diga o que eles têm em comum — quero saber se dá pra vender caro nesse nicho.">
+        <h3 class="p-num">16</h3>
+        <p class="p-pain">“Todo mundo diz que na Shopee só vende barato. É verdade no meu nicho?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na categoria [categoria] da Shopee, existem produtos com preço bem acima do ticket médio da categoria que mesmo assim têm muitas avaliações e nota alta? Liste os 10 e me diga o que eles têm em comum — quero saber se dá pra vender caro nesse nicho.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="17" data-search="compito com importado e nem sei quanto ele cobra a mais ou a menos. na subcategoria [subcategoria] da shopee, compare os produtos de lojas com localização internacional contra os de lojas brasileiras: preço médio, nota média e volume de avaliações. onde o vendedor local ganha por preço e onde ganha por entrega?">
+        <h3 class="p-num">17</h3>
+        <p class="p-pain">“Compito com importado e nem sei quanto ele cobra a mais ou a menos.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na subcategoria [subcategoria] da Shopee, compare os produtos de lojas com localização Internacional contra os de lojas brasileiras: preço médio, nota média e volume de avaliações. Onde o vendedor local ganha por preço e onde ganha por entrega?</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="18" data-search="quero importar. em que categoria isso já é padrão e em qual eu seria o primeiro? compare as categorias da shopee pelo percentual de vendedores internacionais, e me diga onde [categoria] se posiciona nessa comparação. onde a importação já domina e onde ela é rara? explique o que isso diz sobre logística e sobre onde vale importar.">
+        <h3 class="p-num">18</h3>
+        <p class="p-pain">“Quero importar. Em que categoria isso já é padrão e em qual eu seria o primeiro?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Compare as categorias da Shopee pelo percentual de VENDEDORES internacionais, e me diga onde [categoria] se posiciona nessa comparação. Onde a importação já domina e onde ela é rara? Explique o que isso diz sobre logística e sobre onde vale importar.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="19" data-search="esse cara me passou na frente. o que ele tem que eu não tenho? analise esta loja da shopee: [link da loja]. quero seguidores, nota, quantidade de anúncios, ticket médio, tipo de loja, localização e as categorias em que ela atua. no final, 3 coisas que ela faz melhor que a média do nicho dela.">
+        <h3 class="p-num">19</h3>
+        <p class="p-pain">“Esse cara me passou na frente. O que ele tem que eu não tenho?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Analise esta loja da Shopee: [link da loja]. Quero seguidores, nota, quantidade de anúncios, ticket médio, tipo de loja, localização e as categorias em que ela atua. No final, 3 coisas que ela faz melhor que a média do nicho dela.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="20" data-search="quem eu estou enfrentando de verdade nessa categoria? liste as 15 maiores lojas da categoria [categoria] na shopee por seguidores e volume de avaliações. mostre nota, quantidade de anúncios, ticket médio, tipo de loja e localização. quem é marca oficial e quem é vendedor independente?">
+        <h3 class="p-num">20</h3>
+        <p class="p-pain">“Quem eu estou enfrentando de verdade nessa categoria?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Liste as 15 maiores lojas da categoria [categoria] na Shopee por seguidores e volume de avaliações. Mostre nota, quantidade de anúncios, ticket médio, tipo de loja e localização. Quem é marca oficial e quem é vendedor independente?</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="21" data-search="tenho um monte de anúncio e não sei quais estão só ocupando espaço. analise esta loja da shopee: [link da loja]. quantos anúncios ela tem no total e quantos realmente vendem? me dê a proporção de estoque morto e o que isso significa para a operação dela.">
+        <h3 class="p-num">21</h3>
+        <p class="p-pain">“Tenho um monte de anúncio e não sei quais estão só ocupando espaço.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Analise esta loja da Shopee: [link da loja]. Quantos anúncios ela tem no total e quantos realmente vendem? Me dê a proporção de estoque morto e o que isso significa para a operação dela.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="22" data-search="sempre aparece um vendedor novo que come meu espaço do nada. na categoria [categoria] da shopee, encontre lojas relativamente novas na plataforma que já acumularam avaliações e seguidores acima da média das lojas novas dessa categoria. mostre tempo de shopee, nota, anúncios e ticket médio. quem está subindo rápido?">
+        <h3 class="p-num">22</h3>
+        <p class="p-pain">“Sempre aparece um vendedor novo que come meu espaço do nada.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na categoria [categoria] da Shopee, encontre lojas relativamente novas na plataforma que já acumularam avaliações e seguidores acima da média das lojas novas dessa categoria. Mostre tempo de Shopee, nota, anúncios e ticket médio. Quem está subindo rápido?</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="23" data-search="ele só briga comigo num produto ou está em tudo? esta loja da shopee — [link da loja] — atua em quais categorias e subcategorias? onde está o peso do catálogo dela e onde ela é só figurante? quero saber onde ela é forte de verdade e onde eu consigo passar por cima.">
+        <h3 class="p-num">23</h3>
+        <p class="p-pain">“Ele só briga comigo num produto ou está em tudo?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Esta loja da Shopee — [link da loja] — atua em quais categorias e subcategorias? Onde está o peso do catálogo dela e onde ela é só figurante? Quero saber onde ela é forte de verdade e onde eu consigo passar por cima.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="24" data-search="onde o líder do nicho está deixando o cliente insatisfeito? na subcategoria [subcategoria] da shopee, encontre os produtos com muitas avaliações mas nota abaixo da média da categoria. são produtos que vendem apesar de decepcionar — quero entrar com uma versão melhor. mostre preço, avaliações, nota, loja e link.">
+        <h3 class="p-num">24</h3>
+        <p class="p-pain">“Onde o líder do nicho está deixando o cliente insatisfeito?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na subcategoria [subcategoria] da Shopee, encontre os produtos com MUITAS avaliações mas nota abaixo da média da categoria. São produtos que vendem apesar de decepcionar — quero entrar com uma versão melhor. Mostre preço, avaliações, nota, loja e link.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="25" data-search="vale entrar num nicho tomado por shopee mall? na subcategoria [subcategoria] da shopee, qual a composição entre shopee mall, lojas indicadas e lojas comuns entre os produtos com mais avaliações? me diga se um vendedor comum consegue competir aqui e por quê.">
+        <h3 class="p-num">25</h3>
+        <p class="p-pain">“Vale entrar num nicho tomado por Shopee Mall?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na subcategoria [subcategoria] da Shopee, qual a composição entre Shopee Mall, lojas Indicadas e lojas Comuns entre os produtos com mais avaliações? Me diga se um vendedor comum consegue competir aqui e por quê.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="26" data-search="minha nota é essa. isso é bom ou ruim no meu nicho? minha loja na shopee é [link da loja]. compare meus números — nota, seguidores, quantidade de anúncios, ticket médio — com a média das lojas da categoria [categoria]. onde eu estou acima e onde estou atrás? priorize o que eu deveria atacar primeiro.">
+        <h3 class="p-num">26</h3>
+        <p class="p-pain">“Minha nota é essa. Isso é bom ou ruim no meu nicho?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Minha loja na Shopee é [link da loja]. Compare meus números — nota, seguidores, quantidade de anúncios, ticket médio — com a média das lojas da categoria [categoria]. Onde eu estou acima e onde estou atrás? Priorize o que eu deveria atacar primeiro.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="27" data-search="quais marcas mandam nesse nicho e quais não têm dono? na categoria [categoria] da shopee, quais marcas aparecem entre os produtos mais avaliados? e qual a fatia de produtos sem marca definida? quero saber se esse nicho é de marca ou de genérico.">
+        <h3 class="p-num">27</h3>
+        <p class="p-pain">“Quais marcas mandam nesse nicho e quais não têm dono?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na categoria [categoria] da Shopee, quais marcas aparecem entre os produtos mais avaliados? E qual a fatia de produtos sem marca definida? Quero saber se esse nicho é de marca ou de genérico.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="28" data-search="a shopee empurra vídeo. onde eu ganho só postando um clipe? na categoria [categoria] da shopee, liste os 10 produtos com mais avaliações que não têm vídeo (clips) no anúncio. quero competir com eles publicando vídeo, já que a shopee prioriza conteúdo em vídeo. mostre preço, avaliações, nota, tipo de loja e link.">
+        <h3 class="p-num">28</h3>
+        <p class="p-pain">“A Shopee empurra vídeo. Onde eu ganho só postando um clipe?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na categoria [categoria] da Shopee, liste os 10 produtos com mais avaliações que NÃO têm vídeo (clips) no anúncio. Quero competir com eles publicando vídeo, já que a Shopee prioriza conteúdo em vídeo. Mostre preço, avaliações, nota, tipo de loja e link.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="29" data-search="meu anúncio não aparece. que palavras eles usam que eu não uso? pegue os 20 anúncios com mais avaliações da subcategoria [subcategoria] na shopee e extraia o padrão dos títulos: palavras que se repetem, ordem, tamanho, uso de marca e de atributo. depois monte 3 opções de título para o meu produto: [produto].">
+        <h3 class="p-num">29</h3>
+        <p class="p-pain">“Meu anúncio não aparece. Que palavras eles usam que eu não uso?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Pegue os 20 anúncios com mais avaliações da subcategoria [subcategoria] na Shopee e extraia o padrão dos títulos: palavras que se repetem, ordem, tamanho, uso de marca e de atributo. Depois monte 3 opções de título para o meu produto: [produto].</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="30" data-search="meu produto tem favorito e não tem venda. analise este anúncio da shopee: [link do anúncio]. ele tem muitos favoritos em relação às avaliações, comparado com os concorrentes diretos dele? se sim, o gargalo é preço, foto, título ou frete — compare com os concorrentes e me diga onde está o problema.">
+        <h3 class="p-num">30</h3>
+        <p class="p-pain">“Meu produto tem favorito e não tem venda.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Analise este anúncio da Shopee: [link do anúncio]. Ele tem muitos favoritos em relação às avaliações, comparado com os concorrentes diretos dele? Se sim, o gargalo é preço, foto, título ou frete — compare com os concorrentes e me diga onde está o problema.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="31" data-search="estou no fornecedor com o produto na mão. isso vende na shopee? achei esse produto com um fornecedor. ele vende na shopee? use o mcp da joompulse para achar os anúncios equivalentes, me mostre a faixa de preço, quantas avaliações os líderes têm, que tipo de loja domina, e se vale a pena entrar.">
+        <h3 class="p-num">31</h3>
+        <p class="p-pain">“Estou no fornecedor com o produto na mão. Isso vende na Shopee?”</p>
+        <div class="p-part">
+          <div class="p-label">anexe a foto do produto</div>
+          <div class="prompt" data-prompt>Achei esse produto com um fornecedor. Ele vende na Shopee? Use o MCP da JoomPulse para achar os anúncios equivalentes, me mostre a faixa de preço, quantas avaliações os líderes têm, que tipo de loja domina, e se vale a pena entrar.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="32" data-search="o nome do fornecedor nunca bate com o nome da shopee. esse é o catálogo do meu fornecedor. ache esses produtos na shopee via mcp da joompulse, compare os preços de venda com o meu custo de [meu custo] e me diga onde tem margem. entregue em tabela ordenada por margem.">
+        <h3 class="p-num">32</h3>
+        <p class="p-pain">“O nome do fornecedor nunca bate com o nome da Shopee.”</p>
+        <div class="p-part">
+          <div class="p-label">anexe o PDF do catálogo</div>
+          <div class="prompt" data-prompt>Esse é o catálogo do meu fornecedor. Ache esses produtos na Shopee via MCP da JoomPulse, compare os preços de venda com o meu custo de [meu custo] e me diga onde tem margem. Entregue em tabela ordenada por margem.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="33" data-search="por que na shopee meu anúncio é meu e no mercado livre é de todo mundo? me explique a diferença estrutural entre vender [produto] na shopee e no mercado livre: catálogo compartilhado versus anúncio independente. o que muda na minha estratégia de preço, de avaliação e de foto em cada um?">
+        <h3 class="p-num">33</h3>
+        <p class="p-pain">“Por que na Shopee meu anúncio é meu e no Mercado Livre é de todo mundo?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Me explique a diferença estrutural entre vender [produto] na Shopee e no Mercado Livre: catálogo compartilhado versus anúncio independente. O que muda na minha estratégia de preço, de avaliação e de foto em cada um?</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="34" data-search="vale a pena listar isso na shopee também? compare [produto] nos dois marketplaces: preço na shopee versus preço no mercado livre, e volume de avaliações em cada um. onde ele é mais barato e onde ele é mais estabelecido? faça as duas consultas separadamente e depois junte a comparação.">
+        <h3 class="p-num">34</h3>
+        <p class="p-pain">“Vale a pena listar isso na Shopee também?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Compare [produto] nos dois marketplaces: preço na Shopee versus preço no Mercado Livre, e volume de avaliações em cada um. Onde ele é mais barato e onde ele é mais estabelecido? Faça as duas consultas separadamente e depois junte a comparação.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="35" data-search="minha categoria é forte na shopee ou no mercado livre? compare a categoria [categoria] nos dois marketplaces: faturamento estimado, número de pedidos, número de vendedores e ticket médio. consulte cada marketplace separadamente e depois monte a comparação. diga onde a categoria é mais forte e por quê. atenção: a taxonomia é diferente nos dois — avise se os escopos não baterem.">
+        <h3 class="p-num">35</h3>
+        <p class="p-pain">“Minha categoria é forte na Shopee ou no Mercado Livre?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Compare a categoria [categoria] nos dois marketplaces: faturamento estimado, número de pedidos, número de vendedores e ticket médio. Consulte cada marketplace separadamente e depois monte a comparação. Diga onde a categoria é mais forte e por quê. Atenção: a taxonomia é diferente nos dois — avise se os escopos não baterem.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="36" data-search="vendo caro. faz sentido pra mim ir pra shopee? compare o ticket médio da categoria [categoria] no mercado livre e na shopee. meu produto custa [meu preço]. em qual dos dois ele está no lugar certo — e o que eu teria que mudar pra funcionar no outro?">
+        <h3 class="p-num">36</h3>
+        <p class="p-pain">“Vendo caro. Faz sentido pra mim ir pra Shopee?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Compare o ticket médio da categoria [categoria] no Mercado Livre e na Shopee. Meu produto custa [meu preço]. Em qual dos dois ele está no lugar certo — e o que eu teria que mudar pra funcionar no outro?</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="37" data-search="onde o vendedor médio vende mais? na categoria [categoria], calcule pedidos por vendedor e faturamento por vendedor em cada marketplace, a partir dos totais de pedidos, faturamento e número de vendedores. depois me explique o que essa diferença diz sobre o tipo de vendedor que ganha em cada um.">
+        <h3 class="p-num">37</h3>
+        <p class="p-pain">“Onde o vendedor médio vende mais?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Na categoria [categoria], calcule pedidos por vendedor e faturamento por vendedor em cada marketplace, a partir dos totais de pedidos, faturamento e número de vendedores. Depois me explique o que essa diferença diz sobre o tipo de vendedor que ganha em cada um.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="38" data-search="tenho fôlego pra um marketplace só. qual? vendo [produto] a [meu preço]. compare shopee e mercado livre para esse produto: ticket médio da categoria, concentração de vendedores, presença de importado e estrutura de anúncio. recomende por onde começar e me diga claramente o que eu perco com essa escolha.">
+        <h3 class="p-num">38</h3>
+        <p class="p-pain">“Tenho fôlego pra um marketplace só. Qual?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Vendo [produto] a [meu preço]. Compare Shopee e Mercado Livre para esse produto: ticket médio da categoria, concentração de vendedores, presença de importado e estrutura de anúncio. Recomende por onde começar e me diga claramente o que eu perco com essa escolha.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="39" data-search="quanto do meu mercado já é importado? quanto da categoria [categoria] na shopee está nas mãos de vendedores internacionais? compare com outras categorias e me diga se importar é vantagem aqui ou se eu estaria entrando numa briga já tomada por importador.">
+        <h3 class="p-num">39</h3>
+        <p class="p-pain">“Quanto do meu mercado já é importado?”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Quanto da categoria [categoria] na Shopee está nas mãos de vendedores internacionais? Compare com outras categorias e me diga se importar é vantagem aqui ou se eu estaria entrando numa briga já tomada por importador.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="40" data-search="não tenho tempo de olhar o mercado toda semana. toda segunda-feira às 7h: panorama da categoria [categoria] na shopee — faturamento estimado, pedidos, vendedores, ticket médio e o que mudou em relação à semana anterior. formato: resumo executivo de 10 linhas.">
+        <h3 class="p-num">40</h3>
+        <p class="p-pain">“Não tenho tempo de olhar o mercado toda semana.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Toda segunda-feira às 7h: panorama da categoria [categoria] na Shopee — faturamento estimado, pedidos, vendedores, ticket médio e o que mudou em relação à semana anterior. Formato: resumo executivo de 10 linhas.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="41" data-search="quero saber na hora quando alguém mexe no preço. toda semana: monitore os preços destes anúncios da shopee — [links dos anúncios]. me diga quem subiu, quem baixou e quanto, com o valor anterior e o atual.">
+        <h3 class="p-num">41</h3>
+        <p class="p-pain">“Quero saber na hora quando alguém mexe no preço.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Toda semana: monitore os preços destes anúncios da Shopee — [links dos anúncios]. Me diga quem subiu, quem baixou e quanto, com o valor anterior e o atual.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="42" data-search="quero saber quando um concorrente começa a deslanchar. toda semana: acompanhe a evolução de avaliações destes anúncios da shopee — [links dos anúncios]. me diga quem ganhou mais avaliações no período e quem estagnou. termine com uma leitura de uma linha: quem está acelerando?">
+        <h3 class="p-num">42</h3>
+        <p class="p-pain">“Quero saber quando um concorrente começa a deslanchar.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Toda semana: acompanhe a evolução de avaliações destes anúncios da Shopee — [links dos anúncios]. Me diga quem ganhou mais avaliações no período e quem estagnou. Termine com uma leitura de uma linha: quem está acelerando?</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="43" data-search="quero ser avisado quando alguém novo entra no meu nicho. toda semana: me avise se surgirem lojas ou anúncios novos relevantes na subcategoria [subcategoria] da shopee — com nota, avaliações acumuladas, preço, tipo de loja e localização.">
+        <h3 class="p-num">43</h3>
+        <p class="p-pain">“Quero ser avisado quando alguém novo entra no meu nicho.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Toda semana: me avise se surgirem lojas ou anúncios novos relevantes na subcategoria [subcategoria] da Shopee — com nota, avaliações acumuladas, preço, tipo de loja e localização.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="44" data-search="descubro a data sazonal quando ela já está acontecendo. cruze a categoria [categoria] da shopee com o calendário do varejo brasileiro dos próximos 90 dias: o que estocar agora, para qual data, e com qual janela de compra. considere prazo de importação se o produto for importado.">
+        <h3 class="p-num">44</h3>
+        <p class="p-pain">“Descubro a data sazonal quando ela já está acontecendo.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Cruze a categoria [categoria] da Shopee com o calendário do varejo brasileiro dos próximos 90 dias: o que estocar AGORA, para qual data, e com qual janela de compra. Considere prazo de importação se o produto for importado.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="45" data-search="reunião com cliente amanhã, relatório nível apresentação, sem designer. usando o mcp da joompulse, monte um dashboard html interativo da categoria [categoria] na shopee: kpis do mercado, faturamento por subcategoria, top lojas, composição por tipo de loja e presença internacional. ranqueie produtos por avaliações, não por vendas estimadas.">
+        <h3 class="p-num">45</h3>
+        <p class="p-pain">“Reunião com cliente amanhã, relatório nível apresentação, sem designer.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Usando o MCP da JoomPulse, monte um dashboard HTML interativo da categoria [categoria] na Shopee: KPIs do mercado, faturamento por subcategoria, top lojas, composição por tipo de loja e presença internacional. Ranqueie produtos por avaliações, não por vendas estimadas.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="46" data-search="mapear a concorrência de uma categoria pro cliente toma uma tarde. monte um ranking das 15 maiores lojas da categoria [categoria] na shopee via mcp da joompulse — nome, tipo de loja, localização, seguidores, nota, avaliações, anúncios e ticket médio. entregue em excel formatado para apresentar a um cliente.">
+        <h3 class="p-num">46</h3>
+        <p class="p-pain">“Mapear a concorrência de uma categoria pro cliente toma uma tarde.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Monte um ranking das 15 maiores lojas da categoria [categoria] na Shopee via MCP da JoomPulse — nome, tipo de loja, localização, seguidores, nota, avaliações, anúncios e ticket médio. Entregue em Excel formatado para apresentar a um cliente.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="47" data-search="cliente avaliando uma categoria nova quer relatório de verdade. monte um relatório de oportunidade da categoria [categoria] na shopee para eu enviar a um cliente: visão geral do mercado, subcategorias, estrutura de concorrência, presença de importado e 3 recomendações de entrada. word profissional, 2 a 3 páginas. marque claramente o que é estimativa.">
+        <h3 class="p-num">47</h3>
+        <p class="p-pain">“Cliente avaliando uma categoria nova quer relatório de verdade.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Monte um relatório de oportunidade da categoria [categoria] na Shopee para eu enviar a um cliente: visão geral do mercado, subcategorias, estrutura de concorrência, presença de importado e 3 recomendações de entrada. Word profissional, 2 a 3 páginas. Marque claramente o que é estimativa.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="48" data-search="reunião amanhã — a análise precisa virar apresentação. transforme os dados da categoria [categoria] na shopee numa apresentação de 5 slides: capa, tamanho do mercado, estrutura de vendedores, subcategorias promissoras, recomendações. powerpoint limpo e profissional.">
+        <h3 class="p-num">48</h3>
+        <p class="p-pain">“Reunião amanhã — a análise precisa virar apresentação.”</p>
+        <div class="p-part">
+          <div class="prompt" data-prompt>Transforme os dados da categoria [categoria] na Shopee numa apresentação de 5 slides: capa, tamanho do mercado, estrutura de vendedores, subcategorias promissoras, recomendações. PowerPoint limpo e profissional.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="49" data-search="auditar o catálogo inteiro de um cliente contra o mercado leva um dia. cruze os preços desta planilha com o mercado da shopee via mcp da joompulse: para cada produto, acima/na média/abaixo do mercado, e os 3 ajustes mais urgentes. ignore itens sem preço válido. entregue planilha ranqueada por urgência.">
+        <h3 class="p-num">49</h3>
+        <p class="p-pain">“Auditar o catálogo inteiro de um cliente contra o mercado leva um dia.”</p>
+        <div class="p-part">
+          <div class="p-label">anexe a planilha</div>
+          <div class="prompt" data-prompt>Cruze os preços desta planilha com o mercado da Shopee via MCP da JoomPulse: para cada produto, acima/na média/abaixo do mercado, e os 3 ajustes mais urgentes. Ignore itens sem preço válido. Entregue planilha ranqueada por urgência.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+      <article class="card p-card" data-n="50" data-search="cliente paga por monitoramento — mas montar o &#x27;o que mudou&#x27; na mão não escala. monte o snapshot de hoje da categoria [categoria] na shopee: faturamento estimado, pedidos, vendedores, ticket médio, top lojas e top produtos por avaliações. entregue como tabela para download. roda o snapshot de hoje e me mostra o que mudou, métrica por métrica. termina com um parágrafo que eu possa mandar pro cliente no whatsapp.">
+        <h3 class="p-num">50</h3>
+        <p class="p-pain">“Cliente paga por monitoramento — mas montar o &#x27;o que mudou&#x27; na mão não escala.”</p>
+        <div class="p-part">
+          <div class="p-label">Passo 1 — hoje</div>
+          <div class="prompt" data-prompt>Monte o snapshot de hoje da categoria [categoria] na Shopee: faturamento estimado, pedidos, vendedores, ticket médio, top lojas e top produtos por avaliações. Entregue como tabela para download.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+        <div class="p-part">
+          <div class="p-label">Passo 2 — semana seguinte (anexe o arquivo do passo 1)</div>
+          <div class="prompt" data-prompt>Roda o snapshot de hoje e me mostra o que mudou, métrica por métrica. Termina com um parágrafo que eu possa mandar pro cliente no WhatsApp.</div>
+          <button class="copy" type="button">Copiar prompt</button>
+        </div>
+      </article>
+    </div>
+    <p class="empty" id="empty">Nenhum prompt com esse termo. Tente outra palavra.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <img src="/shared/logo-white.png" alt="JoomPulse">
+    <p>Vender na Shopee fica fácil quando você sabe onde olhar.</p>
+  </div>
+</footer>
+
+<script src="/shared/leadmagnet.js" defer></script>
+
+</body>
+</html>

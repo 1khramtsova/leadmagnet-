@@ -1,0 +1,208 @@
+/* ---------------------------------------------------------------
+   JoomPulse — kit compartilhado dos lead magnets
+   Tokens semânticos + componentes. Cada landing escolhe um tema
+   no <body data-theme="..."> e só sobrescreve variáveis.
+   Fonte da verdade do visual: Figma "Joom Pulse — Arquivos".
+   --------------------------------------------------------------- */
+
+:root {
+  /* --- paleta institucional --- */
+  --jp-blue:       #0074FF;
+  --jp-blue-dark:  #005FD1;
+  --jp-ink:        #0B1524;
+  --jp-shopee:     #EE4D2D;
+  --jp-shopee-lt:  #FF6A4A;
+
+  /* --- tokens semânticos (tema claro, padrão) --- */
+  --bg:            #FFFFFF;
+  --bg-soft:       #F6F7F9;
+  --surface:       #FFFFFF;
+  --surface-2:     #F6F7F9;
+  --line:          #E6E8EC;
+  --line-2:        #ECEEF1;
+  --text:          #0B1524;
+  --text-2:        #3A4351;
+  --muted:         #5B6573;
+  --accent:        var(--jp-blue);
+  --accent-hover:  var(--jp-blue-dark);
+  --accent-ink:    #FFFFFF;
+  --accent-soft:   #E7F0FF;
+  --nav-bg:        rgba(255,255,255,.88);
+  --glow:          0 12px 26px -10px rgba(0,116,255,.65);
+
+  /* --- tipografia --- */
+  --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-text:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* --- forma --- */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --max:  1160px;
+}
+
+/* --- tema escuro Shopee (lançamento) --- */
+[data-theme="shopee"] {
+  --bg:           #150402;
+  --bg-soft:      #1E0704;
+  --surface:      rgba(255,255,255,.055);
+  --surface-2:    rgba(0,0,0,.28);
+  --line:         rgba(255,255,255,.12);
+  --line-2:       rgba(255,255,255,.08);
+  --text:         #FFFFFF;
+  --text-2:       rgba(255,255,255,.86);
+  --muted:        rgba(255,255,255,.62);
+  --accent:       var(--jp-shopee);
+  --accent-hover: var(--jp-shopee-lt);
+  --accent-ink:   #FFFFFF;
+  --accent-soft:  rgba(238,77,45,.16);
+  --nav-bg:       rgba(21,4,2,.82);
+  --glow:         0 14px 34px -12px rgba(238,77,45,.75);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+/* ---------- nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 40;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line-2);
+}
+.nav .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding-top: 14px; padding-bottom: 14px;
+}
+.nav img { height: 26px; width: auto; display: block; }
+.nav-tag { font-size: .82rem; font-weight: 600; color: var(--muted); }
+
+/* ---------- tipografia ---------- */
+.h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 6vw, 4.1rem);
+  font-weight: 700; letter-spacing: -.02em; line-height: 1.02;
+  margin: 0 0 20px; max-width: 16ch; text-wrap: balance;
+}
+.h1 b { font-weight: 800; }
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  font-weight: 700; letter-spacing: -.015em; line-height: 1.12;
+  margin: 0 0 12px; text-wrap: balance;
+}
+.lead { font-size: clamp(1.02rem, 1.7vw, 1.18rem); color: var(--text-2); max-width: 54ch; margin: 0 0 30px; }
+.accent { color: var(--accent); }
+
+/* pílula de destaque, igual ao convite do evento */
+.pill {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 9px 18px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--accent-soft);
+  font-size: .88rem; font-weight: 700; color: var(--text);
+  margin-bottom: 24px;
+}
+
+/* ---------- botões ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  text-decoration: none; border: none; cursor: pointer;
+  font-family: inherit; font-weight: 700; font-size: 1rem;
+  padding: 16px 28px; border-radius: var(--r-md); transition: .15s;
+}
+.btn--primary { background: var(--accent); color: var(--accent-ink); box-shadow: var(--glow); }
+.btn--primary:hover { background: var(--accent-hover); }
+.btn--ghost { background: transparent; color: var(--text); border: 1.5px solid var(--line); }
+.btn--ghost:hover { border-color: var(--accent); }
+
+/* ---------- cartões ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  display: flex; flex-direction: column;
+}
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+/* ---------- caixa de prompt ---------- */
+.prompt {
+  background: var(--surface-2); border: 1px solid var(--line-2);
+  border-radius: var(--r-md); padding: 16px;
+  font-size: .88rem; color: var(--text-2); line-height: 1.62;
+  white-space: pre-wrap; flex: 1;
+}
+.token { color: var(--accent); font-weight: 600; }
+
+.copy {
+  margin-top: 14px; width: 100%; border: none; cursor: pointer;
+  font-family: inherit; font-weight: 700; font-size: .9rem;
+  border-radius: 12px; padding: 13px; transition: .15s;
+  background: var(--accent); color: var(--accent-ink);
+}
+.copy:hover { background: var(--accent-hover); }
+.copy.is-done { background: rgba(46,158,69,.18); color: #6BE08A; }
+
+/* ---------- rodapé ---------- */
+.footer {
+  border-top: 1px solid var(--line-2); padding: 40px 0;
+  background: var(--bg-soft); text-align: center;
+}
+.footer img { height: 26px; width: auto; display: inline-block; margin-bottom: 14px; opacity: .9; }
+.footer p { color: var(--muted); font-size: .86rem; margin: 0; }
+
+/* ---------- barra de busca ---------- */
+.toolbar {
+  position: sticky; top: 55px; z-index: 20;
+  background: var(--nav-bg); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line-2); padding: 14px 0;
+}
+.toolbar .wrap { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+#search {
+  flex: 1; min-width: 220px; font-family: inherit; font-size: .95rem; color: var(--text);
+  background: var(--surface-2); border: 1.5px solid var(--line);
+  border-radius: var(--r-md); padding: 13px 17px;
+}
+#search::placeholder { color: var(--muted); }
+#search:focus { outline: none; border-color: var(--accent); }
+#count { font-size: .88rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
+.empty { display: none; text-align: center; color: var(--muted); padding: 46px 0; }
+
+/* ---------- cartão de prompt ---------- */
+.list { position: relative; z-index: 2; padding: 30px 0 70px; }
+.p-card { scroll-margin-top: 130px; }
+.p-num {
+  font-family: var(--font-display); font-size: 1.9rem; font-weight: 800; line-height: 1;
+  color: var(--accent); margin: 0 0 12px; letter-spacing: -.02em;
+}
+.p-pain {
+  font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; line-height: 1.34;
+  margin: 0 0 16px; color: var(--text);
+}
+.p-part { display: flex; flex-direction: column; }
+.p-part:last-child { flex: 1; }
+.p-part + .p-part { margin-top: 18px; }
+.p-label {
+  font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+
+/* ---------- responsivo ---------- */
+@media (max-width: 900px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
