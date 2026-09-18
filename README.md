@@ -18,6 +18,10 @@
 ├── prompts-shopee/       «50 prompts de IA» для Shopee         → /prompts-shopee
 │   ├── index.html
 │   └── assets/           картинки только этой страницы
+├── calendario-black-friday/  «Calendário da Black Friday e o seu placar» (Nogueira) → /calendario-black-friday
+│   ├── index.html · styles.css · app.js   свой CSS без Google Fonts: страница работает офлайн, состояние в localStorage
+│   ├── data/content.js   все строки PT-BR
+│   └── assets/
 └── vercel.json           редиректы
 ```
 

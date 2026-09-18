@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calendário da Black Friday e o seu placar</title>
+<meta name="description" content="Os prazos da Black Friday no Mercado Livre e um placar semanal para acompanhar a sua página.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0074FF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230074FF'/%3E%3Cpath d='M8 17l5 5 11-12' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#prazos">Ir para os prazos</a>
+
+<header class="hero" id="topo">
+  <div class="hero__in">
+    <div class="hero__brand"><img src="assets/logo-white.svg" alt="JoomPulse" width="112" height="55"></div>
+    <div class="hero__grid">
+      <div class="hero__text">
+        <h1 id="hero-h1"></h1>
+        <p class="hero__sub" id="hero-h2"></p>
+      </div>
+      <figure class="hero__photo">
+        <img src="assets/nogueira.webp" alt="Alexandre Nogueira" width="720" height="540">
+        <figcaption id="hero-speaker"></figcaption>
+      </figure>
+    </div>
+    <div class="how card">
+      <h2 class="how__title" id="how-title"></h2>
+      <ol class="how__list" id="how-list"></ol>
+      <p class="how__tagline" id="how-tagline"></p>
+      <p class="how__privacy" id="how-privacy"></p>
+    </div>
+  </div>
+  <img class="deco deco--tr" src="assets/asterisk.svg" alt="" aria-hidden="true">
+  <img class="deco deco--bl" src="assets/sparkles.svg" alt="" aria-hidden="true">
+</header>
+
+<nav class="nav" aria-label="Seções"><div class="nav__in" id="nav"></div></nav>
+
+<main class="main">
+  <section class="section" id="prazos">
+    <div class="section__head"><h2 id="prazos-title"></h2><span class="progress" id="prazos-progress"></span></div>
+    <div class="cardlist" id="prazos-list"></div>
+    <p class="caption" id="prazos-caption"></p>
+  </section>
+
+  <section class="section" id="cronograma">
+    <div class="section__head"><h2 id="cronograma-title"></h2></div>
+    <div class="cardlist" id="cronograma-list"></div>
+    <p class="caption" id="cronograma-caption"></p>
+  </section>
+
+  <section class="section" id="datas">
+    <div class="section__head"><h2 id="datas-title"></h2></div>
+    <div class="datas" id="datas-list"></div>
+    <p class="caption" id="datas-caption"></p>
+  </section>
+
+  <section class="section" id="placar">
+    <div class="section__head"><h2 id="placar-title"></h2><button class="btn btn--primary" type="button" id="placar-add"></button></div>
+    <div class="placar" id="placar-list"></div>
+    <p class="print-only hint" id="placar-print-hint"></p>
+    <div class="print-only placar-blank" id="placar-blank"></div>
+    <p class="caption" id="placar-caption"></p>
+  </section>
+
+  <section class="section" id="checklist">
+    <div class="section__head"><h2 id="checklist-title"></h2></div>
+    <p class="intro" id="checklist-intro"></p>
+    <div class="card checklist" id="checklist-list"></div>
+    <p class="verdict" id="checklist-verdict" aria-live="polite"></p>
+    <p class="print-only hint" id="checklist-print-hint"></p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__in">
+    <img src="assets/logo.svg" alt="JoomPulse" width="96" height="47">
+    <p id="footer-line"></p>
+    <button class="btn btn--ghost" type="button" id="clear-data"></button>
+    <p class="footer__note" id="clear-note" aria-live="polite"></p>
+  </div>
+</footer>
+
+<script src="data/content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
