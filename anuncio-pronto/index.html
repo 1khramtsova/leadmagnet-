@@ -10,30 +10,30 @@
 <meta property="og:description" content="Kit grátis e exclusivo para sellers do Mercado Livre.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/kit-extras.css">
 <style>
 :root{
   --y:#FFE600; --y2:#FFF27A; --ink:#14204A; --ink2:#2D3A66; --blue:#0074FF; --paper:#FFFFFF; --cream:#FFFBE0;
   --green:#00A650; --red:#E8333A;
   --shadow:6px 6px 0 var(--ink);
-  --cp-ink:var(--ink); --cp-accent:var(--ink); --cp-accent-ink:var(--y); --cp-line:var(--ink); --cp-chat:var(--cream); --cp-var:var(--y); --cp-font:var(--fd);
-  --fd:'Archivo',system-ui,sans-serif; --ft:'Inter',system-ui,sans-serif;
+  --cp-ink:var(--ink); --cp-accent:var(--ink); --cp-accent-ink:var(--y); --cp-line:var(--ink); --cp-chat:var(--cream); --cp-var:var(--y); --cp-font:var(--ft);
+  --fd:'Anton',Impact,sans-serif; --ft:'Rubik',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--ft);color:var(--ink);background:var(--y);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--ft);color:var(--ink);background:var(--y);-webkit-font-smoothing:antialiased;font-synthesis:none;overflow-x:hidden}
 a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 
 /* barra do contador */
-.bar{background:var(--ink);color:#fff;font:700 14px/1 var(--fd);text-align:center;padding:11px 16px;letter-spacing:.01em}
+.bar{background:var(--ink);color:#fff;font:700 14px/1 var(--ft);text-align:center;padding:11px 16px;letter-spacing:.01em}
 .bar b{color:var(--y);font-variant-numeric:tabular-nums}
 
 .nav{padding:18px 0}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .nav img{height:36px}
-.nav span{font:800 12px/1 var(--fd);text-transform:uppercase;background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:8px 12px}
+.nav span{font:800 12px/1 var(--ft);text-transform:uppercase;background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:8px 12px}
 
 /* hero */
 .hero{padding:18px 0 72px;position:relative}
@@ -61,7 +61,7 @@ h1 em{font-style:normal;background:var(--paper);padding:0 .12em;border:3px solid
 /* cartão do formulário */
 .formcard{background:var(--paper);border:3px solid var(--ink);border-radius:24px;box-shadow:10px 10px 0 var(--ink);padding:26px;position:relative;scroll-margin-top:20px}
 .timer{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--cream);border:2px dashed var(--ink);border-radius:14px;padding:10px 14px;margin-bottom:18px}
-.timer span{font:700 13px/1.2 var(--fd)}
+.timer span{font:700 13px/1.2 var(--ft)}
 .timer .d{display:flex;gap:6px}
 .timer .d div{background:var(--ink);color:var(--y);border-radius:8px;min-width:46px;padding:6px 4px;text-align:center;font:900 22px/1 var(--fd);font-variant-numeric:tabular-nums}
 .timer .d small{display:block;font:600 9px/1 var(--ft);color:#fff;opacity:.7;margin-top:3px}
@@ -101,13 +101,13 @@ h1 em{font-style:normal;background:var(--paper);padding:0 .12em;border:3px solid
 .kl-card{border:3px solid var(--ink);border-radius:18px;padding:20px;background:#fff;box-shadow:5px 5px 0 var(--ink);display:flex;flex-direction:column;min-width:0}
 .kl-top{display:flex;gap:14px;align-items:flex-start}
 .kl-num{flex:none;font:900 26px/1 var(--fd);background:var(--y);border:2px solid var(--ink);border-radius:10px;padding:8px 9px}
-.kl-title{font:800 19px/1.2 var(--fd)}
+.kl-title{font:800 19px/1.2 var(--ft)}
 .kl-why{font-size:14.5px;color:var(--ink2);margin-top:6px;line-height:1.45}
 .kl-teaser{margin-top:16px;font:13px/1.55 ui-monospace,Menlo,monospace;color:var(--ink2);filter:blur(4px);user-select:none;max-height:90px;overflow:hidden;white-space:pre-wrap}
-.kl-lock{margin-top:12px;align-self:flex-start;font:800 14px var(--fd);text-decoration:none;background:var(--ink);color:var(--y);padding:10px 14px;border-radius:10px}
+.kl-lock{margin-top:12px;align-self:flex-start;font:800 14px var(--ft);text-decoration:none;background:var(--ink);color:var(--y);padding:10px 14px;border-radius:10px}
 .kl-prompt{margin-top:16px;font:13px/1.6 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-word;background:var(--cream);border:2px solid var(--ink);border-radius:12px;padding:14px;max-height:340px;overflow:auto}
 .kl-var{background:var(--y);color:var(--ink);font-weight:700;border-radius:4px;padding:0 2px}
-.kl-copy{margin-top:12px;font:800 15px var(--fd);background:var(--ink);color:#fff;border:0;border-radius:12px;padding:13px;cursor:pointer}
+.kl-copy{margin-top:12px;font:800 15px var(--ft);background:var(--ink);color:#fff;border:0;border-radius:12px;padding:13px;cursor:pointer}
 .kl-copied{background:var(--green)}
 .final{margin-top:48px;text-align:center}
 .final a{display:inline-block;font:900 20px var(--fd);background:var(--y);border:3px solid var(--ink);border-radius:14px;padding:18px 28px;text-decoration:none;box-shadow:5px 5px 0 var(--ink)}

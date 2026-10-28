@@ -47,3 +47,10 @@
 .cp-btn,.cp-btn::after,.cp-me,.cp-ai{animation-delay:-4.5s}
 @media (prefers-reduced-motion:reduce){.cp-btn,.cp-btn::after,.cp-me,.cp-ai{animation:none}}
 @media (max-width:620px){.cp-stage{grid-template-columns:1fr}.cp-chat{display:none}.cp{margin-top:20px}.cp-steps span{font-size:16px}}
+
+/* selects do formulário (motor: .kf-sel > select.kf-input.kf-select) */
+.kf-sel{position:relative;display:block}
+.kf-sel::after{content:'';position:absolute;right:17px;top:50%;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-70%) rotate(45deg);pointer-events:none;opacity:.75}
+.kf-select{appearance:none;-webkit-appearance:none;padding-right:44px !important;cursor:pointer;text-overflow:ellipsis}
+.kf-select:not(.kf-filled){color:var(--kf-ph,#8A93A3)}
+.kf-select option{color:#111;background:#fff}

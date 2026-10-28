@@ -70,12 +70,14 @@
       + '<span class="kf-err"></span></label>';
   }
   function pills(q) {
-    return '<fieldset class="kf-q" id="kf-q-' + (q === Q1 ? "1" : "2") + '"><legend class="kf-label">' + q.title + '</legend>'
-      + '<div class="kf-pills" role="radiogroup">'
+    var n = q === Q1 ? "1" : "2";
+    return '<label class="kf-q" id="kf-q-' + n + '"><span class="kf-label">' + q.title + '</span>'
+      + '<span class="kf-sel"><select class="kf-input kf-select" data-q="' + esc(q.key) + '">'
+      + '<option value="" disabled' + (answers[q.key] ? "" : " selected") + '>Selecione…</option>'
       + q.options.map(function (o) {
-        return '<button type="button" class="kf-pill" role="radio" aria-checked="' + (answers[q.key] === o) + '" data-q="' + esc(q.key) + '" data-v="' + esc(o) + '">' + esc(o) + "</button>";
+        return '<option' + (answers[q.key] === o ? " selected" : "") + ">" + esc(o) + "</option>";
       }).join("")
-      + '</div><span class="kf-err"></span></fieldset>';
+      + '</select></span><span class="kf-err"></span></label>';
   }
   function renderForm() {
     if (!formHost) return;
@@ -99,11 +101,11 @@
         contact[id] = i.value; setErr("kf-f-" + id, "");
       });
     });
-    f.addEventListener("click", function (e) {
-      var b = e.target.closest(".kf-pill"); if (!b) return;
-      answers[b.getAttribute("data-q")] = b.getAttribute("data-v");
-      b.parentNode.querySelectorAll(".kf-pill").forEach(function (x) { x.setAttribute("aria-checked", String(x === b)); });
-      setErr(b.closest(".kf-q").id, "");
+    f.addEventListener("change", function (e) {
+      var s = e.target.closest(".kf-select"); if (!s) return;
+      answers[s.getAttribute("data-q")] = s.value;
+      s.classList.add("kf-filled");
+      setErr(s.closest(".kf-q").id, "");
     });
     f.addEventListener("submit", submit);
   }
