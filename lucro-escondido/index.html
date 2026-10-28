@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lucro Escondido — kit de prompts para sellers do Mercado Livre | JoomPulse</title>
+<meta name="description" content="Kit especial para sellers do Mercado Livre: 6 prompts de IA que acham dinheiro na sua planilha de vendas — margem real, tarifa e frete, estoque parado e preço certo.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Lucro Escondido: 6 prompts que acham dinheiro na sua planilha do Meli">
+<meta property="og:description" content="Kit grátis e exclusivo para sellers do Mercado Livre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g:#00D26A; --g2:#00A653; --gs:#DFFBEA; --mint:#F2FFF7; --ink:#05301B; --ink2:#2B5A42; --line:#BFE9D0; --white:#fff;
+  --red:#F0453A; --redsoft:#FFE5E2; --gold:#FFC93C;
+  --fd:'Manrope',system-ui,sans-serif; --fm:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fd);color:var(--ink);background:var(--mint);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+.nav{padding:18px 0;background:var(--white);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nav img{height:34px}
+.nav .t{font:600 13px/1 var(--fm);color:var(--ink2);display:flex;gap:10px;align-items:center}
+.nav .t b{color:var(--white);background:var(--red);padding:7px 9px;border-radius:6px;font-variant-numeric:tabular-nums}
+
+/* hero espelhado: formulário à esquerda */
+.hero{padding:56px 0 80px;background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 40px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/120px 100%,var(--mint)}
+.hero .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:start}
+.copy{grid-column:2;grid-row:1}
+.formcard{grid-column:1;grid-row:1}
+.pill{display:inline-flex;gap:8px;align-items:center;background:var(--ink);color:var(--g);font:700 14px/1.2 var(--fd);padding:9px 14px;border-radius:8px}
+h1{font:800 clamp(40px,5.4vw,70px)/1.08 var(--fd);letter-spacing:-.04em;margin:20px 0 18px}
+h1 .money{color:var(--white);background:var(--g2);padding:0 .14em;border-radius:.12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.lead{font-size:clamp(17px,1.5vw,19px);line-height:1.55;color:var(--ink2);max-width:600px}
+
+/* planilha */
+.sheet{margin-top:30px;background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 20px 50px -24px rgba(5,48,27,.35);font:500 13px/1 var(--fm);max-width:620px}
+.sheet .row{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.1fr;border-bottom:1px solid var(--line)}
+.sheet .row>div{padding:11px 12px;border-right:1px solid var(--line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sheet .row>div:last-child{border-right:0}
+.sheet .h{background:var(--gs);font-weight:700;color:var(--ink2)}
+.sheet .bad{background:var(--redsoft);color:#A3221A;font-weight:700}
+.sheet .ok{color:var(--g2);font-weight:700}
+.sheet .sum{background:var(--ink);color:var(--white);font-weight:700}
+.sheet .sum>div{border-color:rgba(255,255,255,.12)}
+.sheet .sum .big{color:var(--g);font-size:15px}
+
+.formcard{background:var(--white);border:2px solid var(--ink);border-radius:20px;padding:24px;scroll-margin-top:20px;box-shadow:0 0 0 8px var(--gs)}
+.timer{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:18px}
+.timer .cap{grid-column:1/-1;background:var(--gs);font:600 11.5px/1 var(--fm);padding:8px 10px;color:var(--ink2);text-transform:uppercase}
+.timer div:not(.cap){padding:10px 6px;text-align:center;border-right:1px solid var(--line)}
+.timer div:last-child{border-right:0}
+.timer b{display:block;font:700 26px/1 var(--fm);font-variant-numeric:tabular-nums}
+.timer small{font:500 10px var(--fm);color:var(--ink2)}
+
+.kf{display:grid;gap:14px}
+.kf-head{font:800 23px/1.1 var(--fd);letter-spacing:-.02em}
+.kf-field,.kf-q{display:grid;gap:6px;border:0}
+.kf-label{font:600 12px/1 var(--fm);color:var(--ink2)}
+.kf-input{font:500 16px var(--fd);color:var(--ink);background:var(--white);border:1px solid #9FD6B5;border-radius:10px;padding:13px 14px;outline:none;width:100%}
+.kf-input:focus{border-color:var(--g2);box-shadow:0 0 0 3px var(--gs)}
+.kf-pills{display:flex;flex-wrap:wrap;gap:7px}
+.kf-pill{font:600 13px/1.2 var(--fd);color:var(--ink);background:var(--mint);border:1px solid #9FD6B5;border-radius:8px;padding:9px 12px;cursor:pointer}
+.kf-pill[aria-checked="true"]{background:var(--ink);border-color:var(--ink);color:var(--g)}
+.kf-err{font:600 12px var(--fm);color:var(--red)}
+.kf-bad .kf-input{border-color:var(--red)}
+.kf-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.kf-submit{display:block;text-align:center;text-decoration:none;font:800 18px/1 var(--fd);color:var(--ink);background:var(--g);border:2px solid var(--ink);border-radius:12px;padding:18px;cursor:pointer;transition:background .15s}
+.kf-submit:hover{background:#2BE585}
+.kf-submit:disabled{opacity:.6;cursor:wait}
+.kf-status{font:600 13px var(--fm);color:var(--red)}
+.kf-fine{font-size:11.5px;color:var(--ink2);line-height:1.45}
+.kf-done{text-align:center;justify-items:center}
+.kf-check{width:64px;height:64px;border-radius:14px;background:var(--g);border:2px solid var(--ink);display:grid;place-items:center;font:800 30px var(--fd)}
+.kf-done p{color:var(--ink2)}
+.kit-open .timer{display:none}
+
+/* bloco 2: abas da planilha */
+.kit{background:var(--white);border-top:1px solid var(--line);padding:84px 0;scroll-margin-top:0}
+.kit .top{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:38px}
+.kit h2{font:800 clamp(32px,4.2vw,52px)/1.02 var(--fd);letter-spacing:-.035em}
+.kit h2 span{color:var(--g2)}
+.kit .sub{font-size:16.5px;line-height:1.55;color:var(--ink2)}
+.kit .sub code{font:600 14px var(--fm);background:var(--gs);padding:2px 6px;border-radius:5px}
+.list{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.kl-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 24px;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line);background:var(--white)}
+.kl-card:last-child{border-bottom:0}
+.kl-card:nth-child(even){background:#FAFFFC}
+.kl-top{display:flex;gap:18px;align-items:flex-start}
+.kl-num{flex:none;font:700 14px/1 var(--fm);color:var(--ink2);background:var(--gs);border:1px solid var(--line);border-radius:6px;padding:8px 9px}
+.kl-title{font:800 19px/1.2 var(--fd)}
+.kl-why{font-size:15px;color:var(--ink2);margin-top:5px;line-height:1.45}
+.kl-teaser{display:none}
+.kl-lock{font:600 13px var(--fm);text-decoration:none;color:var(--ink);background:var(--gs);border:1px solid var(--line);padding:10px 12px;border-radius:8px;white-space:nowrap}
+.kl-open{grid-template-columns:1fr}
+.kl-prompt{font:12.5px/1.65 var(--fm);white-space:pre-wrap;word-break:break-word;background:var(--mint);border:1px solid var(--line);border-radius:12px;padding:16px;max-height:320px;overflow:auto;margin-left:58px}
+.kl-var{background:var(--gold);color:var(--ink);font-weight:700;border-radius:3px;padding:0 2px}
+.kl-copy{justify-self:start;margin-left:58px;font:800 14px var(--fd);background:var(--ink);color:var(--g);border:0;border-radius:10px;padding:12px 18px;cursor:pointer}
+.kl-copied{background:var(--g);color:var(--ink)}
+.final{margin-top:40px;text-align:center}
+.final a{display:inline-block;font:800 19px var(--fd);color:var(--ink);background:var(--g);border:2px solid var(--ink);border-radius:12px;padding:18px 28px;text-decoration:none}
+.kit-open .final{display:none}
+footer{background:var(--ink);color:#BFE9D0;padding:36px 0;text-align:center;font-size:14px}
+footer img{height:30px;margin-bottom:12px}
+
+@media (max-width:900px){
+  .hero{padding:34px 0 60px}
+  .hero .wrap,.kit .top{grid-template-columns:1fr;gap:30px}
+  .copy,.formcard{grid-column:1;grid-row:auto}
+  .sheet{display:none}
+  .kl-card{grid-template-columns:1fr}
+  .kl-lock{justify-self:start;margin-left:58px}
+  .kl-prompt,.kl-copy{margin-left:0}
+}
+@media (max-width:420px){.wrap{padding:0 16px}.formcard{padding:18px}.kl-lock{margin-left:0}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <img src="/shared/logo.svg" alt="JoomPulse">
+  <span class="t">grátis até 23:59 · <b><span data-cd="h">--</span>:<span data-cd="m">--</span>:<span data-cd="s">--</span></b></span>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="copy">
+      <span class="pill">▦ Kit especial para sellers do Mercado Livre</span>
+      <h1>Lucro Escondido: 6 prompts que acham <span class="money">dinheiro</span> na sua planilha do Meli</h1>
+      <p class="lead">Cole a exportação de vendas e a IA mostra a margem real de cada produto, onde tarifa e frete comem o seu lucro, quanto capital está parado no estoque e o preço certo — a tempo da Black Friday.</p>
+      <div class="sheet" aria-hidden="true">
+        <div class="row h"><div>Produto</div><div>Vendas/mês</div><div>Margem</div><div>Diagnóstico</div></div>
+        <div class="row"><div>Kit organizador 3un</div><div>412</div><div class="ok">+24%</div><div class="ok">saudável</div></div>
+        <div class="row"><div>Garrafa térmica 1L</div><div>388</div><div class="bad">−3%</div><div class="bad">prejuízo disfarçado</div></div>
+        <div class="row"><div>Suporte celular moto</div><div>9</div><div>+11%</div><div class="bad">zumbi · R$ 6.200 parado</div></div>
+        <div class="row"><div>Luminária LED mesa</div><div>141</div><div class="ok">+31%</div><div>dá pra subir preço</div></div>
+        <div class="row sum"><div>Lucro escondido</div><div></div><div></div><div class="big">+R$ 3.480/mês</div></div>
+      </div>
+    </div>
+
+    <div class="formcard" id="form">
+      <div class="timer">
+        <div class="cap">Acesso grátis fecha em</div>
+        <div><b data-cd="h">--</b><small>horas</small></div>
+        <div><b data-cd="m">--</b><small>min</small></div>
+        <div><b data-cd="s">--</b><small>seg</small></div>
+      </div>
+      <div data-kit-form data-title="Receba o kit grátis" data-cta="Achar meu lucro escondido →"></div>
+    </div>
+  </div>
+</header>
+
+<section class="kit" id="kit">
+  <div class="wrap">
+    <div class="top">
+      <h2>6 abas de <span>análise</span> pra sua planilha</h2>
+      <p class="sub">No Mercado Livre: <code>Vendas → Exportar</code>. Cole a planilha no prompt 01 numa conversa nova do ChatGPT, Claude ou Gemini e siga na ordem — a IA reaproveita os seus números em cada passo. Exemplo ilustrativo acima; o seu resultado depende dos seus dados.</p>
+    </div>
+    <div class="list" data-kit-list></div>
+    <div class="final"><a href="#form" data-kit-cta>Liberar os 6 prompts grátis →</a></div>
+  </div>
+</section>
+
+<footer>
+  <img src="/shared/logo-white.png" alt="JoomPulse">
+  <p>Mercado Livre é fácil quando você sabe onde olhar pra tomar as decisões certas.</p>
+</footer>
+
+<script src="content.js"></script>
+<script src="/shared/kit.js"></script>
+</body>
+</html>

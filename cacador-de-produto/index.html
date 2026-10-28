@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caçador de Produto — kit de prompts para sellers do Mercado Livre | JoomPulse</title>
+<meta name="description" content="Kit especial para sellers do Mercado Livre: 7 prompts de IA pra descobrir o que vender antes de gastar dinheiro com estoque.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Caçador de Produto: o que vender antes de gastar 1 real">
+<meta property="og:description" content="Kit grátis e exclusivo para sellers do Mercado Livre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --o:#FF5A1F; --o2:#FF7A45; --deep:#3A0F00; --cream:#FFF4E6; --sun:#FFD23F; --teal:#00B39A; --white:#FFFFFF; --red:#D61F1F;
+  --fd:'Bricolage Grotesque',system-ui,sans-serif; --ft:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ft);color:var(--deep);background:var(--o);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+.nav{padding:20px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nav img{height:34px}
+.chip{font:700 13px/1 var(--ft);color:var(--white);display:flex;gap:8px;align-items:center}
+.chip b{font:800 15px var(--fd);background:var(--deep);color:var(--sun);border-radius:8px;padding:7px 9px;font-variant-numeric:tabular-nums}
+
+/* hero: título central gigante */
+.hero{padding:26px 0 0;text-align:center;color:var(--white);position:relative;overflow:hidden}
+.sticker{display:inline-block;background:var(--sun);color:var(--deep);font:800 15px/1.1 var(--fd);padding:10px 18px;border-radius:999px;transform:rotate(-3deg);box-shadow:0 6px 0 var(--deep)}
+h1{font:800 clamp(46px,8vw,112px)/.9 var(--fd);letter-spacing:-.045em;margin:26px auto 22px;max-width:1050px}
+h1 .ln{display:block;font-size:.46em;letter-spacing:-.02em;line-height:1.05;margin-top:.22em;color:var(--cream)}
+h1 .ln u{text-decoration:none;background:var(--deep);color:var(--sun);padding:0 .18em;border-radius:.18em;white-space:nowrap}
+.lead{font-size:clamp(17px,1.6vw,20px);line-height:1.5;max-width:720px;margin:0 auto;color:#FFE6D6}
+.target{position:absolute;pointer-events:none;opacity:.22}
+.target.a{width:340px;left:-110px;top:120px}
+.target.b{width:220px;right:-60px;top:20px}
+
+/* faixa com o funil de filtros */
+.funnel{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:34px auto 0;max-width:980px}
+.funnel span{font:700 14px/1 var(--fd);background:rgba(58,15,0,.22);color:var(--white);border:2px solid rgba(255,255,255,.35);border-radius:999px;padding:10px 14px}
+.funnel i{font-style:normal;color:var(--sun)}
+
+/* formulário + o que descobre */
+.zone{color:var(--deep);text-align:left;margin-top:56px;background:var(--cream);border-radius:44px 44px 0 0;padding:64px 0 80px}
+.zone .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.find h2{font:800 clamp(30px,3.6vw,46px)/1 var(--fd);letter-spacing:-.03em}
+.find h2 em{font-style:normal;color:var(--o)}
+.find ol{list-style:none;margin-top:26px;display:grid;gap:14px}
+.find li{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:center;background:var(--white);border-radius:18px;padding:14px;box-shadow:0 2px 0 rgba(58,15,0,.08)}
+.find li b{font:800 22px/1 var(--fd);color:var(--white);background:var(--o);border-radius:14px;height:52px;display:grid;place-items:center}
+.find li span{font-weight:600;font-size:16px;line-height:1.35}
+
+.formcard{background:var(--white);border-radius:28px;padding:28px;box-shadow:0 24px 60px -24px rgba(58,15,0,.45);border:3px solid var(--deep);scroll-margin-top:20px;position:relative}
+.timer{position:absolute;top:-22px;right:24px;background:var(--deep);color:var(--sun);border-radius:14px;padding:9px 14px;font:800 14px/1 var(--fd);display:flex;gap:8px;align-items:center;transform:rotate(2deg)}
+.timer b{font-size:20px;font-variant-numeric:tabular-nums}
+
+.kf{display:grid;gap:14px}
+.kf-head{font:800 26px/1.05 var(--fd);letter-spacing:-.02em;padding-right:120px}
+.kf-field,.kf-q{display:grid;gap:6px;border:0}
+.kf-label{font:700 13px/1 var(--ft)}
+.kf-input{font:500 16px var(--ft);color:var(--deep);background:var(--cream);border:2px solid transparent;border-radius:14px;padding:14px 15px;outline:none;width:100%}
+.kf-input:focus{border-color:var(--o);background:var(--white)}
+.kf-pills{display:flex;flex-wrap:wrap;gap:8px}
+.kf-pill{font:600 13px/1.2 var(--ft);color:var(--deep);background:var(--cream);border:2px solid transparent;border-radius:12px;padding:10px 13px;cursor:pointer}
+.kf-pill[aria-checked="true"]{background:var(--o);color:var(--white)}
+.kf-err{font-size:12px;color:var(--red);font-weight:600}
+.kf-bad .kf-input{border-color:var(--red)}
+.kf-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.kf-submit{display:block;text-align:center;text-decoration:none;font:800 19px/1 var(--fd);color:var(--white);background:var(--o);border:0;border-radius:16px;padding:19px;cursor:pointer;box-shadow:0 6px 0 var(--deep);transition:transform .1s,box-shadow .1s}
+.kf-submit:hover{transform:translateY(2px);box-shadow:0 4px 0 var(--deep)}
+.kf-submit:disabled{opacity:.6;cursor:wait}
+.kf-status{font-size:14px;font-weight:600;color:var(--red)}
+.kf-fine{font-size:11.5px;color:#8A5A44;line-height:1.45}
+.kf-done{text-align:center;justify-items:center}
+.kf-done .kf-head{padding-right:0}
+.kf-check{width:66px;height:66px;border-radius:50%;background:var(--teal);color:var(--white);display:grid;place-items:center;font:800 32px var(--fd)}
+.kit-open .timer{display:none}
+
+/* bloco 2: a trilha */
+.kit{background:var(--white);padding:84px 0;scroll-margin-top:0}
+.kit .top{text-align:center;max-width:780px;margin:0 auto 44px}
+.kit h2{font:800 clamp(32px,4.4vw,56px)/1 var(--fd);letter-spacing:-.035em}
+.kit h2 em{font-style:normal;color:var(--o)}
+.kit .sub{font-size:17px;line-height:1.55;color:#6B3A22;margin-top:16px}
+.list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.kl-card{background:var(--cream);border-radius:24px;padding:22px;display:flex;flex-direction:column;min-width:0;position:relative}
+.kl-card:nth-child(3n+2){background:#FFE3D3}
+.kl-card:nth-child(3n){background:#FFF0B8}
+.kl-open{grid-column:span 3}
+.kl-top{display:flex;flex-direction:column;gap:12px}
+.kl-num{font:800 44px/1 var(--fd);color:var(--o);letter-spacing:-.04em}
+.kl-title{font:800 21px/1.12 var(--fd);letter-spacing:-.01em}
+.kl-why{font-size:14.5px;color:#6B3A22;margin-top:6px;line-height:1.45}
+.kl-open .kl-top{flex-direction:row;align-items:flex-start;gap:18px}
+.kl-teaser{margin-top:16px;font:12.5px/1.55 ui-monospace,Menlo,monospace;filter:blur(4px);user-select:none;max-height:70px;overflow:hidden;white-space:pre-wrap;opacity:.7}
+.kl-lock{margin-top:auto;padding-top:14px;font:800 14px var(--fd);text-decoration:none;color:var(--o)}
+.kl-prompt{margin-top:16px;font:13px/1.6 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-word;background:var(--white);border-radius:16px;padding:16px;max-height:340px;overflow:auto}
+.kl-var{background:var(--sun);color:var(--deep);font-weight:700;border-radius:4px;padding:0 2px}
+.kl-copy{margin-top:12px;align-self:flex-start;font:800 15px var(--fd);background:var(--deep);color:var(--white);border:0;border-radius:12px;padding:13px 20px;cursor:pointer}
+.kl-copied{background:var(--teal)}
+.final{margin-top:44px;text-align:center}
+.final a{display:inline-block;font:800 20px var(--fd);color:var(--white);background:var(--o);border-radius:16px;padding:19px 30px;text-decoration:none;box-shadow:0 6px 0 var(--deep)}
+.kit-open .final{display:none}
+footer{background:var(--deep);color:#FFD9C6;padding:36px 0;text-align:center;font-size:14px}
+footer img{height:30px;margin-bottom:12px}
+
+@media (max-width:900px){
+  .zone .wrap{grid-template-columns:1fr;gap:44px}
+  .zone .formcard{order:-1}
+  .list{grid-template-columns:1fr}
+  .kl-open{grid-column:auto}
+  .kl-open .kl-top{flex-direction:column}
+  .target{display:none}
+}
+@media (max-width:420px){.wrap{padding:0 16px}.formcard{padding:22px}.kf-head{padding-right:0;margin-top:14px}.zone{border-radius:28px 28px 0 0}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <img src="/shared/logo-white.png" alt="JoomPulse">
+  <div class="chip">Grátis só hoje · <b><span data-cd="h">--</span>:<span data-cd="m">--</span>:<span data-cd="s">--</span></b></div>
+</div></nav>
+
+<header class="hero">
+  <svg class="target a" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="3"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="14"/><path d="M50 0v22M50 78v22M0 50h22M78 50h22"/></g></svg>
+  <svg class="target b" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="4"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="22"/><circle cx="50" cy="50" r="5" fill="#fff"/></g></svg>
+  <div class="wrap">
+    <span class="sticker">🎯 Kit especial para sellers do Mercado Livre</span>
+    <h1>Caçador de Produto
+      <span class="ln">o que vender <u>antes de gastar 1 real</u></span></h1>
+    <p class="lead">7 prompts de IA que passam qualquer ideia de produto por um filtro: demanda subindo, brecha no nicho, saturação, viabilidade e calendário de compra. Você só compra estoque do que passou em tudo.</p>
+    <div class="funnel" aria-label="Os filtros do kit">
+      <span><i>01</i> Demanda subindo</span><span><i>02</i> Brecha no nicho</span><span><i>03</i> Saturação</span>
+      <span><i>04</i> Viabilidade</span><span><i>05</i> A ou B</span><span><i>06</i> Ticket</span><span><i>07</i> Calendário</span>
+    </div>
+  </div>
+
+  <section class="zone">
+    <div class="wrap">
+      <div class="find" style="text-align:left">
+        <h2>No fim da caçada você <em>sabe</em>:</h2>
+        <ol>
+          <li><b>✓</b><span>Qual produto lançar — e por que ele, não outro</span></li>
+          <li><b>✓</b><span>Se o nicho já lotou ou ainda tem saída</span></li>
+          <li><b>✓</b><span>A margem real, já com tarifa e frete do Meli</span></li>
+          <li><b>✓</b><span>O que vender junto pra subir o ticket</span></li>
+          <li><b>✓</b><span>Quando comprar estoque pra pegar Black Friday e Natal</span></li>
+        </ol>
+      </div>
+      <div class="formcard" id="form" style="text-align:left">
+        <div class="timer">⏳ fecha em <b><span data-cd="h">--</span>:<span data-cd="m">--</span>:<span data-cd="s">--</span></b></div>
+        <div data-kit-form data-title="Comece a caçada grátis" data-cta="Começar a caçada →"></div>
+      </div>
+    </div>
+  </section>
+</header>
+
+<section class="kit" id="kit">
+  <div class="wrap">
+    <div class="top">
+      <h2>A trilha do <em>Caçador</em>, prompt por prompt</h2>
+      <p class="sub">Cole na ordem, na mesma conversa do ChatGPT, Claude ou Gemini. O 01 guarda seu perfil e o seu orçamento; cada filtro seguinte trabalha em cima do resultado do anterior.</p>
+    </div>
+    <div class="list" data-kit-list></div>
+    <div class="final"><a href="#form" data-kit-cta>Liberar os 7 prompts grátis →</a></div>
+  </div>
+</section>
+
+<footer>
+  <img src="/shared/logo-white.png" alt="JoomPulse">
+  <p>Mercado Livre é fácil quando você sabe onde olhar pra tomar as decisões certas.</p>
+</footer>
+
+<script src="content.js"></script>
+<script src="/shared/kit.js"></script>
+</body>
+</html>

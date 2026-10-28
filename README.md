@@ -92,3 +92,14 @@ open http://localhost:8000/meu-material/
 
 Сборки, npm, фреймворков. Если лидмагниту вдруг понадобится бэкенд, форма с базой
 или свой домен — это повод завести отдельный репозиторий, а не усложнять этот.
+
+## Kits de prompts com formulário (out/2026)
+
+`anuncio-pronto/`, `raio-x-concorrente/`, `cacador-de-produto/`, `lucro-escondido/` — каждый со своим
+дизайном, промпты в `<папка>/content.js`, поведение (форма, таймер до полуночи по Сан-Паулу,
+разблокировка, копирование) — в `shared/kit.js`.
+
+Форма шлёт `POST /api/lead` (`api/lead.js`) → Make-хук из env `LEADMAGNET_WEBHOOK_URL`.
+Поля как у Распадиньи (Name, Phone, Email, Meli_Shopee, «Faturamento por mes», UTM) плюс hidden
+`page=leadmagnet` и `leadmagnet=leadmagnet-<папка>`. Без env API отвечает 503 `not_configured`.
+Новый кит = новая папка + slug в `KITS` в `api/lead.js`.
