@@ -2,6 +2,12 @@
    Fonte: prompts 46, 38, 48, 42, 43, 44 dos «50 prompts de IA». */
 window.KIT = {
   slug: "lucro-escondido",
+  demo: {
+    label: "Prompt 02 · Margem real",
+    prompt: "Você é um analista financeiro de e-commerce.\nMinha planilha:\n[cole a exportação do Meli]",
+    me: "Você é um analista financeiro… (planilha colada)",
+    ai: ["Garrafa térmica 1L · −R$ 2,10 por venda · prejuízo", "Kit organizador 3un · +R$ 18,40 · saudável", "⚠️ 3 produtos pra revisar o preço já"]
+  },
   steps: [
     {
       t: "Check-up da operação em 5 pontos",

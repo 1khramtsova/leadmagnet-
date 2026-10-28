@@ -11,11 +11,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/kit-extras.css">
 <style>
 :root{
   --y:#FFE600; --y2:#FFF27A; --ink:#14204A; --ink2:#2D3A66; --blue:#0074FF; --paper:#FFFFFF; --cream:#FFFBE0;
   --green:#00A650; --red:#E8333A;
   --shadow:6px 6px 0 var(--ink);
+  --cp-ink:var(--ink); --cp-accent:var(--ink); --cp-accent-ink:var(--y); --cp-line:var(--ink); --cp-chat:var(--cream); --cp-var:var(--y); --cp-font:var(--fd);
   --fd:'Archivo',system-ui,sans-serif; --ft:'Inter',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -36,6 +38,8 @@ a{color:inherit}
 /* hero */
 .hero{padding:18px 0 72px;position:relative}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.ml-badge{border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transform:rotate(-1.5deg)}
+.cp-prompt,.cp-chat{border-width:2px}
 .badge{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--y);font:800 14px/1.2 var(--fd);padding:10px 16px;border-radius:10px;transform:rotate(-1.5deg)}
 h1{font:900 clamp(40px,6vw,76px)/.95 var(--fd);letter-spacing:-.03em;margin:22px 0 18px}
 h1 em{font-style:normal;background:var(--paper);padding:0 .12em;border:3px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);display:inline-block;transform:rotate(-1deg)}
@@ -123,7 +127,7 @@ footer p{opacity:.75}
 </head>
 <body>
 
-<div class="bar">⚡ Acesso grátis ao kit fecha hoje em <b><span data-cd="h">--</span>:<span data-cd="m">--</span>:<span data-cd="s">--</span></b></div>
+<div class="bar">⚡ Seu acesso grátis ao kit expira em <b><span data-cd="m">--</span>:<span data-cd="s">--</span></b></div>
 
 <nav class="nav"><div class="wrap">
   <img src="/shared/logo.svg" alt="JoomPulse">
@@ -133,7 +137,7 @@ footer p{opacity:.75}
 <header class="hero">
   <div class="wrap">
     <div>
-      <div class="badge">🟡 Kit especial para sellers do Mercado Livre</div>
+      <div class="ml-badge"><img src="/shared/mercado-livre.png" alt="Mercado Livre" width="96" height="78"><span>Kit especial para<b>sellers do Mercado Livre</b></span></div>
       <h1>Anúncio <em>Pronto</em>: 7 prompts pra criar o anúncio que vende</h1>
       <p class="lead">Você cola a ficha do produto uma vez e a IA monta o anúncio inteiro com você: título que aparece na busca, descrição que quebra objeção, comparativo e teste A/B.</p>
       <ul class="ticks">
@@ -141,24 +145,14 @@ footer p{opacity:.75}
         <li>Descrição com FAQ que responde antes do comprador perguntar</li>
         <li>Bônus: conserto do anúncio que já vende pouco</li>
       </ul>
-      <div class="listing" aria-hidden="true">
-        <div class="ph">🎧</div>
-        <div>
-          <small>MAIS VENDIDO · Frete grátis</small>
-          <div class="t"><s>Fone de ouvido sem fio top</s><br>Fone Bluetooth 5.3 Sem Fio com Cancelamento de Ruído 40h</div>
-          <div class="p">R$ 129</div>
-          <div class="st">★★★★★ · +500 vendidos</div>
-          <span class="new">Título reescrito pelo prompt 03</span>
-        </div>
-      </div>
+      <div data-kit-cp></div>
     </div>
 
     <div class="formcard" id="form">
       <div class="timer">
-        <span>O kit sai do ar<br>à meia-noite</span>
+        <span>Seu acesso grátis<br>expira em</span>
         <div class="d">
-          <div><span data-cd="h">--</span><small>horas</small></div>
-          <div><span data-cd="m">--</span><small>min</small></div>
+                    <div><span data-cd="m">--</span><small>min</small></div>
           <div><span data-cd="s">--</span><small>seg</small></div>
         </div>
       </div>
@@ -186,7 +180,7 @@ footer p{opacity:.75}
   <p>Mercado Livre é fácil quando você sabe onde olhar pra tomar as decisões certas.</p>
 </footer>
 
-<script src="content.js"></script>
+<script src="/anuncio-pronto/content.js"></script>
 <script src="/shared/kit.js"></script>
 </body>
 </html>

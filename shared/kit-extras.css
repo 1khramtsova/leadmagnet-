@@ -1,0 +1,49 @@
+/* ---------------------------------------------------------------
+   Peças comuns dos kits: selo grande do Mercado Livre e a cena
+   «Copia → Cola → Usa». Cada página pinta via variáveis --cp-*.
+   --------------------------------------------------------------- */
+:root{
+  --cp-surface:#fff; --cp-ink:#0B1524; --cp-muted:#5B6573; --cp-line:#E6E8EC;
+  --cp-accent:#0074FF; --cp-accent-ink:#fff; --cp-var:#FFE600;
+  --cp-chat:#F6F7F9; --cp-font:inherit; --cp-mono:ui-monospace,Menlo,monospace; --cp-r:18px;
+}
+
+/* selo Mercado Livre */
+.ml-badge{display:inline-flex;align-items:center;gap:16px;background:#fff;color:#2D3277;border-radius:20px;padding:10px 20px 10px 12px;box-shadow:0 10px 30px -12px rgba(0,0,0,.35)}
+.ml-badge img{height:78px;width:auto;display:block}
+.ml-badge span{font:800 15px/1.2 var(--cp-font);text-align:left;max-width:190px}
+.ml-badge span b{display:block;font-size:22px;letter-spacing:-.02em}
+@media (max-width:520px){.ml-badge{gap:12px;padding:8px 14px 8px 8px}.ml-badge img{height:60px}.ml-badge span{font-size:13px}.ml-badge span b{font-size:18px}}
+
+/* cena copia-cola */
+.cp{margin-top:28px;max-width:600px;color:var(--cp-ink);font-family:var(--cp-font)}
+.cp-steps{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.cp-steps span{display:inline-flex;align-items:center;gap:8px;font:800 18px/1 var(--cp-font);color:inherit}
+.cp-steps b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--cp-accent);color:var(--cp-accent-ink);font-size:14px}
+.cp-steps i{font-style:normal;opacity:.6;font-weight:800}
+.cp-stage{display:grid;grid-template-columns:1fr 1.15fr;gap:12px;align-items:stretch;text-align:left}
+.cp-prompt,.cp-chat{background:var(--cp-surface);border:1px solid var(--cp-line);border-radius:var(--cp-r);padding:14px;min-width:0;box-shadow:0 14px 34px -18px rgba(0,0,0,.35)}
+.cp-tag{font:700 11px/1.2 var(--cp-mono);color:var(--cp-muted);text-transform:uppercase;letter-spacing:.03em}
+.cp-code{font:12px/1.55 var(--cp-mono);margin:10px 0 12px;white-space:pre-wrap;color:var(--cp-ink)}
+.cp-code mark{background:var(--cp-var);color:#111;border-radius:3px;padding:0 2px;font-weight:700}
+.cp-btn{position:relative;display:inline-block;font:800 13px/1 var(--cp-font);background:var(--cp-accent);color:var(--cp-accent-ink);border-radius:10px;padding:10px 12px;animation:cp-btn 7s infinite}
+.cp-btn::after{content:'';position:absolute;right:-14px;bottom:-16px;width:22px;height:22px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 2l14 10-6 1.5 3.5 7-3 1.5-3.5-7L5 19z' fill='%23fff' stroke='%23111' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
+  animation:cp-cursor 7s infinite}
+.cp-chat{display:flex;flex-direction:column;gap:9px;background:var(--cp-chat)}
+.cp-bar{display:flex;align-items:center;gap:5px;font:700 11px/1 var(--cp-mono);color:var(--cp-muted)}
+.cp-bar i{width:8px;height:8px;border-radius:50%;background:var(--cp-line)}
+.cp-bar span{margin-left:6px}
+.cp-me{align-self:flex-end;max-width:88%;background:var(--cp-accent);color:var(--cp-accent-ink);font:500 12px/1.4 var(--cp-font);border-radius:14px 14px 4px 14px;padding:8px 11px;animation:cp-me 7s infinite}
+.cp-ai{align-self:flex-start;max-width:96%;background:var(--cp-surface);border:1px solid var(--cp-line);font:12px/1.5 var(--cp-mono);border-radius:14px 14px 14px 4px;padding:9px 11px;animation:cp-ai 7s infinite}
+.cp-ai div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cp-ai div:last-child{font-weight:700;white-space:normal}
+.cp-ai b{font:800 10px/1 var(--cp-font);background:var(--cp-ink);color:var(--cp-surface);border-radius:5px;padding:3px 5px;margin-right:5px}
+@keyframes cp-btn{0%,14%{filter:none;transform:none}17%{transform:scale(.94);filter:brightness(1.25)}20%,100%{transform:none;filter:none}}
+@keyframes cp-cursor{0%{transform:translate(26px,22px);opacity:0}8%{opacity:1}15%,20%{transform:translate(0,0);opacity:1}30%,100%{transform:translate(0,0);opacity:0}}
+@keyframes cp-me{0%,24%{opacity:0;transform:translateY(8px)}30%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes cp-ai{0%,40%{opacity:0;transform:translateY(8px)}48%,94%{opacity:1;transform:none}100%{opacity:0}}
+/* старт с середины цикла: на первом кадре чат уже заполнен */
+.cp-btn,.cp-btn::after,.cp-me,.cp-ai{animation-delay:-4.5s}
+@media (prefers-reduced-motion:reduce){.cp-btn,.cp-btn::after,.cp-me,.cp-ai{animation:none}}
+@media (max-width:620px){.cp-stage{grid-template-columns:1fr}.cp-chat{display:none}.cp{margin-top:20px}.cp-steps span{font-size:16px}}

@@ -2,6 +2,12 @@
    Fonte: prompts 2, 11, 3, 6, 15, 45 dos «50 prompts de IA». */
 window.KIT = {
   slug: "raio-x-concorrente",
+  demo: {
+    label: "Prompt 01 · Raio-x do concorrente",
+    prompt: "Você é um consultor de inteligência competitiva.\n- Concorrente: [nome da loja]\n- O que dá pra ver: [preço, vendas]",
+    me: "Você é um consultor de inteligência competitiva… Loja: TopCase",
+    ai: ["Preço: 8% abaixo da média da categoria", "Fraqueza: avaliações reclamam do prazo", "👉 UMA coisa: entrar no Full e pôr o prazo no título"]
+  },
   steps: [
     {
       t: "Engenharia reversa da estratégia dele",

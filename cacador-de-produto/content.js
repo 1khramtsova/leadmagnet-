@@ -2,6 +2,12 @@
    Fonte: prompts 1, 4, 14, 5, 9, 10, 8 dos «50 prompts de IA». */
 window.KIT = {
   slug: "cacador-de-produto",
+  demo: {
+    label: "Prompt 01 · Demanda subindo",
+    prompt: "Você é um analista de mercado sênior do Mercado Livre.\n- Nicho: [nicho]\n- Quanto posso investir: [R$]",
+    me: "Você é um analista de mercado sênior… Nicho: casa e cozinha",
+    ai: ["Garrafa térmica infantil · demanda ↑ · concorrência baixa", "Organizador de gaveta · demanda ↑ · concorrência baixa", "🎯 Top 3 pra testar primeiro: …"]
+  },
   steps: [
     {
       t: "10 produtos com demanda subindo",

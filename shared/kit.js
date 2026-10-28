@@ -43,13 +43,17 @@
   }
   var UTM = utm();
 
-  /* ---------- contador: até a meia-noite de São Paulo (UTC-3) ---------- */
+  /* ---------- contador: 15 min a partir da 1ª visita deste navegador ----------
+     Guardado no localStorage pra não reiniciar no F5; quando zera, começa
+     outra janela de 15 min em vez de ficar parado em 00:00. */
+  var WINDOW_MS = 15 * 60 * 1000, CD_KEY = "kit-deadline-" + KIT.slug;
   var cdEls = document.querySelectorAll("[data-cd]");
+  var deadline = +store(CD_KEY) || 0;
   function tick() {
     var now = Date.now();
-    var brt = new Date(now - 3 * 3600 * 1000);
-    var left = 86400 - (brt.getUTCHours() * 3600 + brt.getUTCMinutes() * 60 + brt.getUTCSeconds());
-    var v = { h: Math.floor(left / 3600), m: Math.floor((left % 3600) / 60), s: left % 60 };
+    if (deadline <= now) { deadline = now + WINDOW_MS; store(CD_KEY, String(deadline)); }
+    var left = Math.ceil((deadline - now) / 1000);
+    var v = { m: Math.floor(left / 60), s: left % 60 };
     cdEls.forEach(function (el) { el.textContent = String(v[el.getAttribute("data-cd")]).padStart(2, "0"); });
   }
   if (cdEls.length) { tick(); setInterval(tick, 1000); }
@@ -214,6 +218,23 @@
     if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
     if (!store(STORE)) setTimeout(function () { var i = document.getElementById("kf-name"); if (i) i.focus({ preventScroll: true }); }, 500);
   });
+
+  /* ---------- cena «Copia → Cola → Usa» (KIT.demo) ---------- */
+  var cpHost = document.querySelector("[data-kit-cp]");
+  if (cpHost && KIT.demo) {
+    var d = KIT.demo;
+    cpHost.innerHTML = '<div class="cp" aria-hidden="true">'
+      + '<div class="cp-steps"><span><b>1</b>Copia</span><i>→</i><span><b>2</b>Cola na IA</span><i>→</i><span><b>3</b>Usa</span></div>'
+      + '<div class="cp-stage">'
+      +   '<div class="cp-prompt"><div class="cp-tag">' + esc(d.label) + '</div>'
+      +     '<div class="cp-code">' + hl(d.prompt) + '</div>'
+      +     '<span class="cp-btn">⧉ Copiar prompt</span></div>'
+      +   '<div class="cp-chat"><div class="cp-bar"><i></i><i></i><i></i><span>ChatGPT · Claude · Gemini</span></div>'
+      +     '<div class="cp-me">' + esc(d.me) + '</div>'
+      +     '<div class="cp-ai">' + d.ai.map(function (l, i) { return "<div>" + (i === 0 ? "<b>IA</b>" : "") + esc(l) + "</div>"; }).join("") + "</div>"
+      +   "</div>"
+      + "</div></div>";
+  }
 
   if (store(STORE)) document.documentElement.classList.add("kit-open");
   renderForm(); renderList();
