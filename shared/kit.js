@@ -245,6 +245,11 @@
       + "</div></div>";
   }
 
+  /* link de entrega do WhatsApp (?acesso=liberado): abre o kit sem formulário,
+     porque o navegador do WhatsApp não tem o localStorage do envio */
+  var viaLink = new URLSearchParams(location.search).get("acesso") === "liberado";
+  if (viaLink) store(STORE, "1");
   if (store(STORE)) document.documentElement.classList.add("kit-open");
   renderForm(); renderList();
+  if (viaLink) setTimeout(function () { var l = document.getElementById("kit"); if (l) l.scrollIntoView({ behavior: "smooth" }); }, 400);
 })();
