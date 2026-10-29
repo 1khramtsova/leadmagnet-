@@ -2,14 +2,15 @@
    Motor dos kits de prompts (anuncio-pronto, raio-x-concorrente,
    cacador-de-produto, lucro-escondido).
 
-   A página define window.KIT = { slug, steps:[{t, why, p}] } e marca:
+   A página define window.KIT = { slug, name, steps:[{t, why, p}] } e marca:
      [data-kit-form]   onde o formulário é desenhado
      [data-kit-list]   onde a lista de prompts é desenhada
      [data-cd="h|m|s"] dígitos do contador (até 23:59:59 de São Paulo)
      [data-kit-cta]    botões que levam ao formulário
    O visual é 100% da página: aqui só saem classes kf-* e kl-*.
    Envio: POST /api/lead → Make (hidden: page=leadmagnet,
-   leadmagnet=leadmagnet-<slug>). Desbloqueio fica no localStorage.
+   leadmagnet=leadmagnet-<slug>). Desbloqueio fica no localStorage;
+   depois do envio o lead vai pro WhatsApp buscar o material.
    --------------------------------------------------------------- */
 (function () {
   "use strict";
@@ -21,6 +22,10 @@
     options: ["Só no Mercado Livre", "Só na Shopee", "Nos dois (Mercado Livre e Shopee)", "Estou começando / Outro"] };
   var Q2 = { key: "Faturamento por mes", title: "Faturamento mensal",
     options: ["Menos de R$ 25.000", "R$ 25.000 – 100.000", "R$ 100.000 – 500.000", "R$ 500.000 – 2.500.000", "Mais de R$ 2.500.000"] };
+
+  var WA = "https://api.whatsapp.com/send/?phone=5511947626384&text="
+    + encodeURIComponent("Quero receber meu material gratuito: " + (KIT.name || KIT.slug))
+    + "&type=phone_number&app_absent=0";
 
   function esc(s) {
     return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -165,7 +170,8 @@
     formHost.innerHTML = '<div class="kf kf-done"><div class="kf-check">✓</div>'
       + '<div class="kf-head">Kit liberado!</div>'
       + "<p>Seus " + KIT.steps.length + " prompts estão logo abaixo, prontos pra copiar.</p>"
-      + '<a class="kf-submit" href="#kit">Ver meus prompts ↓</a></div>';
+      + '<a class="kf-submit" href="' + WA + '">Receber no WhatsApp →</a>'
+      + '<p><a href="#kit">Ver meus prompts ↓</a></p></div>';
   }
   function unlock(fresh) {
     store(STORE, "1");
@@ -173,7 +179,8 @@
     renderDone(); renderList();
     if (fresh) {
       if (window.fbq) try { window.fbq("track", "Lead", { content_name: "leadmagnet-" + KIT.slug }); } catch (e) {}
-      var l = document.getElementById("kit"); if (l) setTimeout(function () { l.scrollIntoView({ behavior: "smooth" }); }, 350);
+      /* pausa curta pro pixel sair antes de trocar de página */
+      setTimeout(function () { location.href = WA; }, 900);
     }
   }
 

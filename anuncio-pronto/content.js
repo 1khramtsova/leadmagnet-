@@ -2,6 +2,7 @@
    Fonte: prompts 12, 21, 19, 20, 34, 36, 28 dos «50 prompts de IA». */
 window.KIT = {
   slug: "anuncio-pronto",
+  name: "Anúncio Pronto",
   demo: {
     label: "Prompt 03 · Título que ranqueia",
     prompt: "Você é um especialista em SEO e títulos do Mercado Livre.\n- Produto: [produto]\n- Marca: [marca]",
