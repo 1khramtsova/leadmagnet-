@@ -9,15 +9,16 @@
      [data-kit-cta]    botões que levam ao formulário
    O visual é 100% da página: aqui só saem classes kf-* e kl-*.
    Envio: POST /api/lead → Make (hidden: page=leadmagnet,
-   leadmagnet=leadmagnet-<slug>). Desbloqueio fica no localStorage;
-   depois do envio o lead vai pro WhatsApp buscar o material.
+   leadmagnet=leadmagnet-<slug>). Nada fica salvo no navegador: a cada
+   visita o formulário aparece de novo; depois do envio o lead vai pro
+   WhatsApp buscar o material.
    --------------------------------------------------------------- */
 (function () {
   "use strict";
   var KIT = window.KIT;
   if (!KIT) return;
 
-  var STORE = "kit-unlocked-" + KIT.slug;
+  var unlocked = false;
   var Q1 = { key: "Meli_Shopee", title: "Onde você vende hoje?",
     options: ["Só no Mercado Livre", "Só na Shopee", "Nos dois (Mercado Livre e Shopee)", "Estou começando / Outro"] };
   var Q2 = { key: "Faturamento por mes", title: "Faturamento mensal",
@@ -30,9 +31,6 @@
   function esc(s) {
     return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   }
-  function store(k, v) {
-    try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; }
-  }
   function sid() {
     try { return crypto.randomUUID(); } catch (e) { return "c-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 10); }
   }
@@ -40,23 +38,20 @@
   /* ---------- atribuição ---------- */
   var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
   function utm() {
-    var q = new URLSearchParams(location.search), out = {}, saved = {};
-    try { saved = JSON.parse(sessionStorage.getItem("kit-utm") || "{}"); } catch (e) {}
-    UTM_KEYS.forEach(function (k) { out[k] = q.get(k) || saved[k] || null; });
-    try { sessionStorage.setItem("kit-utm", JSON.stringify(out)); } catch (e) {}
+    var q = new URLSearchParams(location.search), out = {};
+    UTM_KEYS.forEach(function (k) { out[k] = q.get(k) || null; });
     return out;
   }
   var UTM = utm();
 
-  /* ---------- contador: 15 min a partir da 1ª visita deste navegador ----------
-     Guardado no localStorage pra não reiniciar no F5; quando zera, começa
-     outra janela de 15 min em vez de ficar parado em 00:00. */
-  var WINDOW_MS = 15 * 60 * 1000, CD_KEY = "kit-deadline-" + KIT.slug;
+  /* ---------- contador: 15 min a partir da abertura da página ----------
+     Quando zera, começa outra janela de 15 min em vez de ficar em 00:00. */
+  var WINDOW_MS = 15 * 60 * 1000;
   var cdEls = document.querySelectorAll("[data-cd]");
-  var deadline = +store(CD_KEY) || 0;
+  var deadline = 0;
   function tick() {
     var now = Date.now();
-    if (deadline <= now) { deadline = now + WINDOW_MS; store(CD_KEY, String(deadline)); }
+    if (deadline <= now) deadline = now + WINDOW_MS;
     var left = Math.ceil((deadline - now) / 1000);
     var v = { m: Math.floor(left / 60), s: left % 60 };
     cdEls.forEach(function (el) { el.textContent = String(v[el.getAttribute("data-cd")]).padStart(2, "0"); });
@@ -86,7 +81,7 @@
   }
   function renderForm() {
     if (!formHost) return;
-    if (store(STORE)) { renderDone(); return; }
+    if (unlocked) { renderDone(); return; }
     formHost.innerHTML = '<form class="kf" novalidate>'
       + '<div class="kf-head">' + (formHost.getAttribute("data-title") || "Receba o kit grátis") + "</div>"
       + field("name", "Seu nome", "text", "Maria Silva", "name")
@@ -174,7 +169,7 @@
       + '<p><a href="#kit">Ver meus prompts ↓</a></p></div>';
   }
   function unlock(fresh) {
-    store(STORE, "1");
+    unlocked = true;
     document.documentElement.classList.add("kit-open");
     renderDone(); renderList();
     if (fresh) {
@@ -191,7 +186,7 @@
   }
   function renderList() {
     if (!listHost) return;
-    var open = !!store(STORE);
+    var open = unlocked;
     listHost.innerHTML = KIT.steps.map(function (s, i) {
       var n = String(i + 1).padStart(2, "0");
       return '<article class="kl-card' + (open ? " kl-open" : " kl-locked") + '">'
@@ -223,9 +218,9 @@
   document.addEventListener("click", function (e) {
     var a = e.target.closest("[data-kit-cta]"); if (!a) return;
     e.preventDefault();
-    var target = store(STORE) ? document.getElementById("kit") : document.getElementById("form");
+    var target = unlocked ? document.getElementById("kit") : document.getElementById("form");
     if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-    if (!store(STORE)) setTimeout(function () { var i = document.getElementById("kf-name"); if (i) i.focus({ preventScroll: true }); }, 500);
+    if (!unlocked) setTimeout(function () { var i = document.getElementById("kf-name"); if (i) i.focus({ preventScroll: true }); }, 500);
   });
 
   /* ---------- cena «Copia → Cola → Usa» (KIT.demo) ---------- */
@@ -246,10 +241,9 @@
   }
 
   /* link de entrega do WhatsApp (?acesso=liberado): abre o kit sem formulário,
-     porque o navegador do WhatsApp não tem o localStorage do envio */
+     é o único jeito de ver o kit sem preencher o formulário nesta visita */
   var viaLink = new URLSearchParams(location.search).get("acesso") === "liberado";
-  if (viaLink) store(STORE, "1");
-  if (store(STORE)) document.documentElement.classList.add("kit-open");
+  if (viaLink) { unlocked = true; document.documentElement.classList.add("kit-open"); }
   renderForm(); renderList();
   if (viaLink) setTimeout(function () { var l = document.getElementById("kit"); if (l) l.scrollIntoView({ behavior: "smooth" }); }, 400);
 })();
