@@ -54,3 +54,10 @@
 .kf-select{appearance:none;-webkit-appearance:none;padding-right:44px !important;cursor:pointer;text-overflow:ellipsis}
 .kf-select:not(.kf-filled){color:var(--kf-ph,#8A93A3)}
 .kf-select option{color:#111;background:#fff}
+
+/* formulário: um grotesco neutro em todas as páginas (pedido da Karolina, 02.11) */
+.kf,.kf *{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif !important;font-synthesis:none}
+.kf-head{font-weight:700 !important;letter-spacing:-.015em !important;text-transform:none !important}
+.kf-label{font-weight:700 !important;letter-spacing:0 !important;text-transform:none !important}
+.kf-input,.kf-select{font-weight:500 !important}
+.kf-submit{font-weight:700 !important;letter-spacing:0 !important}
