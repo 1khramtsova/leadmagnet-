@@ -75,7 +75,8 @@
       + '<span class="kf-sel"><select class="kf-input kf-select" data-q="' + esc(q.key) + '">'
       + '<option value="" disabled' + (answers[q.key] ? "" : " selected") + '>Selecione…</option>'
       + q.options.map(function (o) {
-        return '<option' + (answers[q.key] === o ? " selected" : "") + ">" + esc(o) + "</option>";
+        /* value explícito: o tradutor do Chrome traduz o texto da opção, não o value */
+        return '<option value="' + esc(o) + '"' + (answers[q.key] === o ? " selected" : "") + ">" + esc(o) + "</option>";
       }).join("")
       + '</select></span><span class="kf-err"></span></label>';
   }
@@ -133,6 +134,9 @@
   }
   function submit(e) {
     e.preventDefault();
+    /* relê os campos: autopreenchimento do navegador nem sempre dispara «input» */
+    ["name", "phone", "email"].forEach(function (id) { var i = document.getElementById("kf-" + id); if (i) contact[id] = i.value; });
+    formHost.querySelectorAll(".kf-select").forEach(function (s) { if (s.value) answers[s.getAttribute("data-q")] = s.value; });
     if (sending || !validate()) {
       var bad = formHost.querySelector(".kf-bad"); if (bad) bad.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
