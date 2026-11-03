@@ -18,7 +18,7 @@
   var KIT = window.KIT;
   if (!KIT) return;
 
-  var unlocked = false;
+  var unlocked = false, lastSid = null;
   var Q1 = { key: "Meli_Shopee", title: "Onde você vende hoje?",
     options: ["Só no Mercado Livre", "Só na Shopee", "Nos dois (Mercado Livre e Shopee)", "Estou começando / Outro"] };
   var Q2 = { key: "Faturamento por mes", title: "Faturamento mensal",
@@ -149,7 +149,9 @@
       Meli_Shopee: answers[Q1.key], "Faturamento por mes": answers[Q2.key],
       website: f.querySelector(".kf-hp").value,
       utm: UTM, referrer: document.referrer || null, landing_url: location.href,
+      attribution: window.jpAttribution ? window.jpAttribution() : null,
     };
+    lastSid = body.submission_id;
     fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { status: r.status, j: j }; }); })
       .then(function (x) {
@@ -177,7 +179,8 @@
     document.documentElement.classList.add("kit-open");
     renderDone(); renderList();
     if (fresh) {
-      if (window.fbq) try { window.fbq("track", "Lead", { content_name: "leadmagnet-" + KIT.slug }); } catch (e) {}
+      /* eventID = submission_id: o Meta deduplica este Lead com o do CAPI (Make) */
+      if (window.jpLead) window.jpLead(lastSid, { content_name: "leadmagnet-" + KIT.slug });
       /* pausa curta pro pixel sair antes de trocar de página */
       setTimeout(function () { location.href = WA; }, 900);
     }

@@ -84,6 +84,21 @@ module.exports = async function handler(req, res) {
   payload.referrer = text(b.referrer, 500);
   payload.landing_url = text(b.landing_url, 500);
 
+  /* Meta CAPI / ads attribution, read by shared/jp-track.js. COOKIES is the raw
+     cookie string under the same name the Tilda contract uses; event_id equals
+     the pixel Lead's eventID so Meta dedupes browser and server events. */
+  const a = b.attribution && typeof b.attribution === "object" ? b.attribution : {};
+  payload.fbp = text(a.fbp, 128);
+  payload.fbc = text(a.fbc, 512);
+  payload.fbclid = text(a.fbclid, 512);
+  payload.gclid = text(a.gclid, 512);
+  payload.ttclid = text(a.ttclid, 512);
+  payload.COOKIES = text(a.cookies, 4000);
+  payload.user_agent = text(a.user_agent, 500) || text(req.headers["user-agent"], 500);
+  payload.client_ip_address = text(String(req.headers["x-forwarded-for"] || "").split(",")[0], 64);
+  payload.event_id = payload.submission_id;
+  payload.event_source_url = payload.landing_url;
+
   /* The two hidden fields this route exists for. */
   payload.page = "leadmagnet";
   payload.leadmagnet = "leadmagnet-" + slug;
