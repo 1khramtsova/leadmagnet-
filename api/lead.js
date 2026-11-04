@@ -103,6 +103,18 @@ module.exports = async function handler(req, res) {
   payload.page = "leadmagnet";
   payload.leadmagnet = "leadmagnet-" + slug;
 
+  /* The "Lead from Tilda" contract: the hook feeds that scenario (2229138), whose
+     modules read these exact lowercase names — HubSpot, Airtable and the CAPI
+     conversion all key off them, and the capitalised Raspadinha names above reach
+     nothing there. Same field set as the Tilda form on /50-prompts. */
+  payload.name = payload.Name;
+  payload.phone = "+55 " + payload.Phone;
+  payload.email = payload.Email;
+  payload["meli-shopee"] = payload.Meli_Shopee;
+  payload.faturamento = payload["Faturamento por mes"];
+  payload.tranid = payload.submission_id;
+  payload.formid = "leadmagnet-" + slug;
+
   payload.is_mql = payload.Meli_Shopee !== NOT_SELLING_YET;
   payload.form = "leadmagnet-" + slug;
   payload.source = "leadmagnet-" + slug;
